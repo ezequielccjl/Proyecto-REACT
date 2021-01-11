@@ -11,9 +11,14 @@ function App() {
         <p className = 'app'>
           Mi App :-)
         </p>
-        <p className = 'app'>
-        Ezequiel Cordova Cruz
-        </p>
+        <div className= 'div-caratula'>
+          <p className = 'app'>
+          Ezequiel Cordova Cruz
+          </p>
+          <p className = 'app'>
+          Camada-11365
+          </p>
+        </div>
       </header>
     </div>
   );
