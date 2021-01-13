@@ -1,5 +1,6 @@
 import React from 'react'
 import './navbar.css'
+import {CartWidget} from '../CartWidget/CartWidget'
 
 import logo from './logo-navbar.png'
 
@@ -13,7 +14,7 @@ export const NavBar = () => {
             </p>
             <p>Home</p>
             <p>Catalogo</p>
-            <p>Carrito</p>
+            <CartWidget />
         </div>
     )
 }
