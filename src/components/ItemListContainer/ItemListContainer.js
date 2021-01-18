@@ -1,10 +1,17 @@
 import React from 'react'
-import logo from '../../logo.svg';
+
+import {ItemCount} from '../ItemCount/ItemCount.'
+import './itemlist.css'
+
+//import logo from '../../logo.svg';
+//<img src={logo} className="App-logo" alt="logo" />
 
 export const ItemListContainer = ({greeting}) => {
     return (
-        <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header className="App-header">
+
+        <ItemCount stock={8} inicial={0} />
+        
         <p className = 'app'>
             {greeting}
         </p>

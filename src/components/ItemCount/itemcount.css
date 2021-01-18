@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+#cont-item{
+    color: black;
+    background-color: rgb(235, 235, 235);
+    padding: 1.5rem;
+    margin: 10px;
+    margin-top: -3rem;
+    border-width: 10px !important;
+    border-radius: 10px !important;
+    border-color: white !important;
+    font-family: Lato, sans;
+}
+
+#cont-item > img{
+    width: 15rem;
+}
+
+.cont-btn-masmenos{
+    height: 3rem;
+    width: 15rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(179, 179, 255);
+}
+
+.items-agre{
+    margin: 1rem;
+    font-size: 1.2rem
+}
+
+.btn-agregar{
+    background-color: transparent;
+    border: none;
+    font-size: 2.3rem;
+    font-weight: 200;
+    font-family: Poppins, sans;
+    color: rgb(111, 111, 255);
+    transition: all .1s ease-in-out;
+
+}
+
+.btn-agregar:hover{
+    transform: scale(1.1);
+}
+
+.btn-agregar:focus {     
+    box-shadow: none;
+    outline:0; 
+}
+
+.btn-agregar-item{
+    font-size: 1.1rem;
+}
+
+.btn-agregar-item:hover{
+    transform: scale(1.05);
+
+}
+
+.cont-agregar-carrito{
+    height: 3rem;
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(179, 179, 255);
+}
+
+.cont-stock{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#div-stock{
+    font-size: 1rem;
+    color: crimson;
+    display: flex;
+}
