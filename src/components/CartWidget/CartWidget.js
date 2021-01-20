@@ -1,10 +1,9 @@
 import React from 'react'
-import cartIcon from './cart-icon.png'
 
 import './carticon.css'
 
 export const CartWidget = () => {
     return (
-        <img id='cart-icon' src={cartIcon} alt='cart-icon'></img>
+        <i className="fas fa-shopping-cart icon-nav fa-lg"></i>
     )
 }

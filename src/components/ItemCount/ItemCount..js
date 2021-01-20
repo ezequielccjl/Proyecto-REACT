@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import './itemcount.css'
-import item1 from './retro-boca-1.png'
 
 export const ItemCount = ({stock, inicial}) => {
 
@@ -21,15 +20,11 @@ export const ItemCount = ({stock, inicial}) => {
         }
     }
 
+    const onAdd = () => {
+        contador>0 ? alert("Agregaste " + contador + " elemento(s) al carrito") : alert("No hay elementos para agregar al carrito.")
+    }
+
     return(
-        <div id='cont-item'>
-            <div id='div-stock'>
-                <span id='span-stock'>Stock disponible: {stockDisp-inicial}</span>
-            </div>
-            <img src={item1} alt='item1'></img>
-
-            <div>Camiseta Boca Juniors Retro [10]</div>
-
             <div className='cont-stock'>
                 <div className='cont-btn-masmenos'>
                     
@@ -42,9 +37,8 @@ export const ItemCount = ({stock, inicial}) => {
                 </div>
 
                 <div className='cont-agregar-carrito'>
-                    <button className='btn-agregar btn-agregar-item'>Agregar</button>
+                    <button onClick={onAdd} className='btn-agregar btn-agregar-item'>Agregar</button>
                 </div>
             </div>
-        </div>
     )
 }

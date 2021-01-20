@@ -1,0 +1,4 @@
+.cont-lista-catalogo{
+    display: flex;
+    flex-direction: row;
+}
