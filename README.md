@@ -2,6 +2,9 @@
 
 Ezequiel Cordova Cruz - Camada 11365
 
-## Desafío N°2
+## IWA: Internet Warehouse Apparel
 
-Se desarrolló una NavBar con opciones clickeables y un logo a modo de ejemplo.
+IWA es una tienda de ropa on-line destacada en sus diseños exclusivos y prendas unisex
+
+Si desean saber más:
+IG: instagram.com/internetwarehouseapparel/

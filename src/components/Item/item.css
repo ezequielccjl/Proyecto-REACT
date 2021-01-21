@@ -3,3 +3,7 @@
     color: wheat;
     font-size: 1.2rem;
 }
+
+.cont-item img{
+    cursor: url(./infocursor.png), pointer !important;
+}
