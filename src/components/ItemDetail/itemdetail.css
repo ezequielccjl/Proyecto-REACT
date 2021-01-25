@@ -1,0 +1,49 @@
+.cont-item-detail{
+    height: auto;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    background: #222222;
+    color: white;
+}
+
+.img-detail{
+    width: 30rem;
+}
+
+.cont-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.cont-info-item{
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.detail-title{
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.detail-precio{
+    font-size: 2rem;
+    font-weight: 600;
+    color: wheat;
+}
+
+.detail-ul{
+    list-style-type: none;
+    margin-left: -2.5rem;
+}
+
+.detail-ul li{
+    margin-bottom: 0.3rem;
+}
+
+.detail-ul li:last-child{
+    color: red;
+}

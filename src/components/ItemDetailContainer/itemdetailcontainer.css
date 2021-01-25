@@ -1,0 +1,7 @@
+.cont-detail{
+    padding-top: 10vh;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    background: #919191;
+}

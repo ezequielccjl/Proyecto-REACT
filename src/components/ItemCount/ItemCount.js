@@ -18,7 +18,7 @@ export const ItemCount = ({stock, inicial}) => {
             setContador(contador-1)
             setStock(stockDisp+1)
         }
-    }
+    } 
 
     const onAdd = () => {
         contador>0 ? alert("Agregaste " + contador + " elemento(s) al carrito") : alert("No hay elementos para agregar al carrito.")
