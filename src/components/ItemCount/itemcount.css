@@ -21,7 +21,7 @@
     transform: scale(1.01);
 }
 
-.cont-item > img{
+.cont-item > a > img{
     width: 17rem;
 }
 

@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+
 import './navbar.css'
 import {CartWidget} from '../CartWidget/CartWidget'
-
 
 import logo from './logo.png'
 //import logo2 from './logo2.png'

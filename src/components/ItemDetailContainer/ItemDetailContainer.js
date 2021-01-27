@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {ItemDetail} from '../ItemDetail/ItemDetail'
+import { useParams } from 'react-router-dom'
 
 import './itemdetailcontainer.css'
 
@@ -12,6 +13,8 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({})
     const [estado, setEstado] = useState("En Proceso")
+
+    const {itemId} = useParams()
 
     let listaCatalogo = [
         {
@@ -44,17 +47,13 @@ const ItemDetailContainer = () => {
         let task = new Promise((success, reject) => {
           setTimeout(()=>{
             listaCatalogo.length ? success(listaCatalogo) : reject('Error durante FETCH');
-          }, 2000)
+          }, 1000)
         })
       
         task.then(lista => {
           
-          //Si la busqueda es exitosa se reemplaza la lista vacía por la lista del catalogo
-          //Tambien se setea un estado Exitoso para corroborar en ItemList 
-
+          //Si la busqueda es exitosa se setea un estado Exitoso para corroborar en ItemList 
           console.log("SUCCESS: "+ lista)
-          let rand = Math.floor(Math.random()*3)
-          setItem(lista[rand]);
           setEstado('Exitoso');
     
         }).catch((err)  => {
@@ -68,6 +67,13 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         simulacionFetch();
     }, []);
+
+    //Por cada vez que cambie el ItemId
+    useEffect(()=>{
+        listaCatalogo.forEach(item => {
+            item.id===itemId&& setItem(item)
+        });
+    },[itemId])
 
     return (
         <div className="cont-detail">
