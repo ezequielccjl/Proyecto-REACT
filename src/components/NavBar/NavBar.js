@@ -1,47 +1,41 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 
 import './navbar.css'
 import {CartWidget} from '../CartWidget/CartWidget'
 
 import logo from './logo.png'
-//import logo2 from './logo2.png'
 
+const NavBar = () => {
 
-
-//Nota personal: export default => para más funciones.
-
-class NavBar extends Component {
+    //Para mapeo de Categorias
+    const listaCategorias = ['remera', 'buzo']
     
-    constructor(props){
-        super(props);
-        this.state = {
-            img: logo
-        }
-    }
+    return(
+        <div className = 'container-nav'>
+            <p>
+                <Link to={`/`}>
+                    <img id='logo-web' className = 'img-logo' src={logo} alt = 'logo'></img>
+                </Link>
+            </p>
 
-    /*
-    componentDidMount = ()=>{
-        setInterval(() => {
-            this.setState(prevState => ({
-                img: logo2
-            }))
-        },500)
-    }
-    */
+            {/*Mapeo de categorias con etiquetas Link*/}
+            {listaCategorias.map((cat)=>{
+                return (
+                    <Link key={cat} to={`/category/${cat}`}>
+                        {cat.charAt(0).toUpperCase() + cat.substring(1, cat.length)} 
+                    </Link>
+                )
+            })}
+                    
+            <Link to={'/'}>
+                <p>Todo</p>
+            </Link>
 
-    render(){
-        return(
-            <div className = 'container-nav'>
-                <p>
-                    <img id='logo-web' className = 'img-logo' src={this.state.img} alt = 'logo'></img>
-                </p>
-                <p>Home</p>
-                <p>Catalogo</p>
-                <CartWidget />
-            </div>
-        )
-    }
+            <CartWidget />
+        </div>
+    )
+    
     
 }
 

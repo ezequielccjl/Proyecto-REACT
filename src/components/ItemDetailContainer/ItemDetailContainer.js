@@ -47,7 +47,7 @@ const ItemDetailContainer = () => {
         let task = new Promise((success, reject) => {
           setTimeout(()=>{
             listaCatalogo.length ? success(listaCatalogo) : reject('Error durante FETCH');
-          }, 1000)
+          }, 800)
         })
       
         task.then(lista => {

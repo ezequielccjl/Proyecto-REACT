@@ -5,6 +5,7 @@ import './item.css'
 import {Link} from 'react-router-dom'
 
 export const Item =  ({item}) => {
+
     
     return(
         <div className='cont-item'>
@@ -12,7 +13,7 @@ export const Item =  ({item}) => {
                 <span className='span-stock'>Stock disponible: {item.stock}</span>
             </div>
 
-            <Link to={`/detail/${item.id}`}>
+            <Link to={`/item/${item.id}`}>
                 <img  src={item.picture} alt='item1'></img>
             </Link>
 

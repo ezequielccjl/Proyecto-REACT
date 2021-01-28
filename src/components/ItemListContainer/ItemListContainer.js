@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 
 import { ItemList } from '../ItemList/ItemList'
 import './itemlistcont.css'
@@ -14,12 +15,16 @@ export const ItemListContainer = ({greeting}) => {
   const [estadoFetch, setEstado] = useState('En proceso')
   const [listaItems, setLista] = useState([]) 
 
+  //Recibe params según el link en el que se encuentre
+  const {categoryId} = useParams()
+
   //Catalogo
   let listaCatalogo = [
     {
         id: '4371847139',
         title: 'Fairy Angel',
         description: 'Remera Fairy Angel IWA 2020 Edition',
+        categoria: 'remera',
         price: 1200,
         picture: remeFairy,
         stock: 6
@@ -27,6 +32,7 @@ export const ItemListContainer = ({greeting}) => {
         id: '3748193789',
         title: 'Nascar',
         description: 'Remera NASCAR IWA 2020 Edition',
+        categoria: 'remera',
         price: 1300,
         picture: remeNascar,
         stock: 4
@@ -34,6 +40,7 @@ export const ItemListContainer = ({greeting}) => {
         id: '5492549040',
         title: 'Solaris',
         description: 'Remera Solaris [Movie] IWA 2020 Edition',
+        categoria: 'buzo',
         price: 1250,
         picture: remeSolaris,
         stock: 11
@@ -69,6 +76,15 @@ export const ItemListContainer = ({greeting}) => {
   useEffect(() => {
     simulacionFetch();
   }, []);
+
+  //Cada vez que se modifique el categoryId se setea una nueva lista
+  //Esta será la lista que se manda por parametro a ItemList para que sea renderizada
+  useEffect(()=>{
+    setLista(listaCatalogo.filter(item => item.categoria===categoryId))
+
+    //En caso de que el categoryId no sea ninguna categoría quiero que me muestre todos los productos
+    categoryId==undefined&&setLista(listaCatalogo)
+  }, [categoryId])
 
   return (
     <div className='item-list-container'>
