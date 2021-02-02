@@ -8,7 +8,7 @@ export const ItemList = ({estado, listaItems}) => {
     //Corroboración de Estado y Lista para renderizar
     return (
         
-        <div className='cont-lista-catalogo'>
+        <div className='cont-lista-catalogo col-10'>
             {estado === 'Exitoso' &&
             listaItems?.map((i) => (
                 <Item key={i.id} item={i} />

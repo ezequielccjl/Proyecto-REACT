@@ -9,7 +9,7 @@ import logo from './logo.png'
 const NavBar = () => {
 
     //Para mapeo de Categorias
-    const listaCategorias = ['remera', 'buzo']
+    const listaCategorias = ['negro', 'blanco']
     
     return(
         <div className = 'container-nav'>

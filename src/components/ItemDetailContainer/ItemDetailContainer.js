@@ -5,9 +5,10 @@ import { useParams } from 'react-router-dom'
 import './itemdetailcontainer.css'
 
 //IMPORT IMAGENES
-import remeFairy from '../ItemListContainer/img-products/fairy-angel.png'
+import dibujo from '../ItemListContainer/img-products/dibujo.png'
 import remeNascar from '../ItemListContainer/img-products/nascar.png'
 import remeSolaris from '../ItemListContainer/img-products/solaris.png'
+import remeOdyssey from '../ItemListContainer/img-products/2001.png'
 
 const ItemDetailContainer = () => {
 
@@ -17,17 +18,19 @@ const ItemDetailContainer = () => {
     const {itemId} = useParams()
 
     let listaCatalogo = [
-        {
-            id: '4371847139',
-            title: 'Fairy Angel',
-            description: 'Remera Fairy Angel IWA 2020 Edition',
-            price: 1200,
-            picture: remeFairy,
-            stock: 6
-        },{
+            {
+              id: '346gYGfyfg',
+              title: 'Art Concept',
+              description: 'Remera Art Concept IWA 2021 Edition',
+              categoria: 'negro',
+              price: 1500,
+              picture: dibujo,
+              stock: 7
+          },{
             id: '3748193789',
             title: 'Nascar',
             description: 'Remera NASCAR IWA 2020 Edition',
+            categoria: 'negro',
             price: 1300,
             picture: remeNascar,
             stock: 4
@@ -35,10 +38,19 @@ const ItemDetailContainer = () => {
             id: '5492549040',
             title: 'Solaris',
             description: 'Remera Solaris [Movie] IWA 2020 Edition',
+            categoria: 'negro',
             price: 1250,
             picture: remeSolaris,
             stock: 11
-        },
+        },{
+          id: "aishd2JerR",
+          title: "2001 Odyssey",
+          description: "Remera Space Odyssey IWA 2021 Edition",
+          categoria: "negro",
+          price: 1200,
+          picture: remeOdyssey,
+          stock: 14
+        }
     ]
 
     const simulacionFetch = () => {

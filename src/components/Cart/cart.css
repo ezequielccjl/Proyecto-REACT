@@ -1,0 +1,8 @@
+.section-cart{
+    height:100vh;    
+    background: #919191;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}

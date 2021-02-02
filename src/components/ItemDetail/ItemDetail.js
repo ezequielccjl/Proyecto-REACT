@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {ItemCount} from '../ItemCount/ItemCount'
+import {Link} from 'react-router-dom'
 
 import './itemdetail.css'
 
+//  item = Lista de items / estado = fetch /
 export const ItemDetail = ({item, estado}) => {
+
+    const [compraEstado, setCompraEstado] = useState(false)
+    const [contador, setContador] = useState(0);
+
+    console.log(item.stock + " ITEM STOCKKKKKKKKKKKKKKKKKKKK")
+
+    const sumarItem = () => {
+        contador<item.stock&&setContador(contador+1)
+    }
+
+    const restarItem = () => {
+        contador>0&&setContador(contador-1)
+    }
+
+    const handlerCompra = () => {
+        contador>0?setCompraEstado(true):alert("No hay productos a comprar")
+    }
+
     return(
         <React.Fragment>
             {estado === 'En Proceso' ? (<h3>{estado}</h3>) :  item && 
@@ -21,7 +41,18 @@ export const ItemDetail = ({item, estado}) => {
                                     <li>Stock Disponible: {item.stock}</li>
                                 </ul>
                                 <div className="detail-precio">${item.price}</div>
-                                <ItemCount stock={item.stock} inicial = {0} />
+                                {compraEstado===false ?
+                                    <ItemCount 
+                                        cont = {contador} 
+                                        handler={handlerCompra}
+                                        sumar = {sumarItem}
+                                        restar = {restarItem}
+                                        />
+                                    :
+                                    <Link to="/cart">
+                                        <button className="btn-finalizar-compra">Terminar Compra</button>
+                                    </Link>
+                                }
                             </div>
                         </div>
                     </div>

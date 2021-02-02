@@ -5,9 +5,11 @@ import { ItemList } from '../ItemList/ItemList'
 import './itemlistcont.css'
 
 //IMPORT IMAGENES
-import remeFairy from './img-products/fairy-angel.png'
+import dibujo from './img-products/dibujo.png'
 import remeNascar from './img-products/nascar.png'
 import remeSolaris from './img-products/solaris.png'
+import remeOdyssey from './img-products/2001.png'
+
 
 export const ItemListContainer = ({greeting}) => {
 
@@ -21,18 +23,18 @@ export const ItemListContainer = ({greeting}) => {
   //Catalogo
   let listaCatalogo = [
     {
-        id: '4371847139',
-        title: 'Fairy Angel',
-        description: 'Remera Fairy Angel IWA 2020 Edition',
-        categoria: 'remera',
-        price: 1200,
-        picture: remeFairy,
-        stock: 6
+        id: '346gYGfyfg',
+        title: 'Art Concept',
+        description: 'Remera Art Concept IWA 2021 Edition',
+        categoria: 'blanco',
+        price: 1500,
+        picture: dibujo,
+        stock: 7
     },{
         id: '3748193789',
         title: 'Nascar',
         description: 'Remera NASCAR IWA 2020 Edition',
-        categoria: 'remera',
+        categoria: 'negro',
         price: 1300,
         picture: remeNascar,
         stock: 4
@@ -40,11 +42,19 @@ export const ItemListContainer = ({greeting}) => {
         id: '5492549040',
         title: 'Solaris',
         description: 'Remera Solaris [Movie] IWA 2020 Edition',
-        categoria: 'buzo',
+        categoria: 'negro',
         price: 1250,
         picture: remeSolaris,
         stock: 11
-    },
+    },{
+      id: "aishd2JerR",
+      title: "2001 Odyssey",
+      description: "Remera Space Odyssey IWA 2021 Edition",
+      categoria: "negro",
+      price: 1200,
+      picture: remeOdyssey,
+      stock: 14
+    }
   ]
 
   //Función invocada con useEffect
@@ -61,7 +71,7 @@ export const ItemListContainer = ({greeting}) => {
       
       //Si la busqueda es exitosa se reemplaza la lista vacía por la lista del catalogo
       //Tambien se setea un estado Exitoso para corroborar en ItemList  
-      console.log("SUCCESS: "+ lista)
+      console.log("SUCCESS: Se obtuvo lista completa")
       setLista(lista);
       setEstado('Exitoso');
 
@@ -83,7 +93,7 @@ export const ItemListContainer = ({greeting}) => {
     setLista(listaCatalogo.filter(item => item.categoria===categoryId))
 
     //En caso de que el categoryId no sea ninguna categoría quiero que me muestre todos los productos
-    categoryId==undefined&&setLista(listaCatalogo)
+    categoryId===undefined&&setLista(listaCatalogo)
   }, [categoryId])
 
   return (
@@ -92,7 +102,7 @@ export const ItemListContainer = ({greeting}) => {
         {greeting}
       </header>
 
-      <div className='item-list'>
+      <div className='item-list row'>
         <ItemList estado = {estadoFetch} listaItems = {listaItems} />
       </div>
         
