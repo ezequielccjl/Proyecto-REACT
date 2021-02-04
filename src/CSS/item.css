@@ -5,6 +5,6 @@
 }
 
 .cont-item img{
-    cursor: url(./infocursor.png), pointer !important;
+    cursor: url(../components/Item/infocursor.png), pointer !important;
 }
 

@@ -10,7 +10,7 @@ export const Context = ({children}) => {
 
     const calcularCantidad = () =>{
         let cantidadFinal = 0
-        listaCarrito.forEach(prod => {
+        listaCarrito.forEach(prod => { 
             cantidadFinal= cantidadFinal + prod.cantidad
         });
         console.log("CANTIDAD FINAL------------------- "+cantidadFinal)

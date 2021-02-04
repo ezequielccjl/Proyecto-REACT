@@ -3,7 +3,7 @@ import {ItemCount} from '../ItemCount/ItemCount'
 import {Link} from 'react-router-dom'
 import {CartContext} from '../../CartContext'
 
-import './itemdetail.css'
+import '../../CSS/itemdetail.css'
 
 //  item = Lista de items / estado = fetch /
 export const ItemDetail = ({item, estado, listaCatalogo}) => {

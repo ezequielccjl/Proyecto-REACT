@@ -4,7 +4,7 @@ import {CartContext} from '../../CartContext'
 import { useParams } from 'react-router-dom'
 
 import { ItemList } from '../ItemList/ItemList'
-import './itemlistcont.css'
+import '../../CSS/itemlistcont.css'
 
 
 export const ItemListContainer = ({greeting, listaCatalogo}) => {

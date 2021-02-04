@@ -1,5 +1,5 @@
 import React from 'react'
-import './itemcount.css'
+import '../../CSS/itemcount.css'
 
 export const ItemCount = ({cont, handler, sumar, restar}) => {
 
