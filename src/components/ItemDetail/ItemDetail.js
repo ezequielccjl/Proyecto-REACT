@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import {ItemCount} from '../ItemCount/ItemCount'
 import {Link} from 'react-router-dom'
+import {CartContext} from '../../CartContext'
 
 import './itemdetail.css'
 
@@ -10,7 +11,8 @@ export const ItemDetail = ({item, estado}) => {
     const [compraEstado, setCompraEstado] = useState(false)
     const [contador, setContador] = useState(0);
 
-    console.log(item.stock + " ITEM STOCKKKKKKKKKKKKKKKKKKKK")
+    let contexto = useContext(CartContext)
+
 
     const sumarItem = () => {
         contador<item.stock&&setContador(contador+1)
@@ -21,8 +23,25 @@ export const ItemDetail = ({item, estado}) => {
     }
 
     const handlerCompra = () => {
-        contador>0?setCompraEstado(true):alert("No hay productos a comprar")
+        if (contador>0) {
+            setCompraEstado(true)
+        }else{
+            alert("No hay productos a comprar")
+        }
+        
     }
+    
+    const compraVerificada = () => {
+        let cantPermitida;
+        contexto.listaCarrito.forEach(element => {
+            if(element.id === item.id) {cantPermitida=element.cantidad}
+        });
+    }
+
+    const terminarCompra = () => {
+        contexto.agregarProd(item.id, item, contador)
+    }
+
 
     return(
         <React.Fragment>
@@ -50,7 +69,7 @@ export const ItemDetail = ({item, estado}) => {
                                         />
                                     :
                                     <Link to="/cart">
-                                        <button className="btn-finalizar-compra">Terminar Compra</button>
+                                        <button onClick={terminarCompra} className="btn-finalizar-compra">Terminar Compra</button>
                                     </Link>
                                 }
                             </div>

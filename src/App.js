@@ -5,33 +5,37 @@ import {ItemListContainer} from './components/ItemListContainer/ItemListContaine
 import {Cart} from './components/Cart/Cart'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import { SvgShapes } from './components/SvgShapes/SvgShapes'
+import {Context} from './CartContext'
 
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
+      <Context>
 
-      <Switch>
+        <NavBar />
 
-        <Route exact path="/">
-          <ItemListContainer greeting='Internet Warehouse Apparel' />
-        </Route>
+        <Switch>
 
-        <Route path="/category/:categoryId">
-          <ItemListContainer greeting='Internet Warehouse Apparel' />
-        </Route>
+          <Route exact path="/">
+            <ItemListContainer greeting='Internet Warehouse Apparel' />
+          </Route>
 
-        <Route path="/cart">
-          <Cart />
-        </Route>
-      
-        <Route path="/item/:itemId">
-          <ItemDetailContainer/>
-        </Route>
-      </Switch>
+          <Route path="/category/:categoryId">
+            <ItemListContainer greeting='Internet Warehouse Apparel' />
+          </Route>
 
+          <Route path="/cart">
+            <Cart />
+          </Route>
+        
+          <Route path="/item/:itemId">
+            <ItemDetailContainer/>
+          </Route>
+        </Switch>
+
+      </Context>
       {/*SVG SHAPE-DIVIDER*/}
       <SvgShapes />
       

@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import './navbar.css'
 import {CartWidget} from '../CartWidget/CartWidget'
-
 import logo from './logo.png'
+import './navbar.css'
 
 const NavBar = () => {
+
 
     //Para mapeo de Categorias
     const listaCategorias = ['negro', 'blanco']

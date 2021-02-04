@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import {CartContext} from '../../CartContext'
+
 import { useParams } from 'react-router-dom'
 
 import { ItemList } from '../ItemList/ItemList'
@@ -12,6 +14,8 @@ import remeOdyssey from './img-products/2001.png'
 
 
 export const ItemListContainer = ({greeting}) => {
+
+  let contexto = useContext(CartContext)
 
   //Defino estados seteables para confirmación del "Fetch"
   const [estadoFetch, setEstado] = useState('En proceso')
@@ -101,7 +105,9 @@ export const ItemListContainer = ({greeting}) => {
       <header className='header'>
         {greeting}
       </header>
-
+      {
+      console.log(contexto.listaCarrito)
+      }
       <div className='item-list row'>
         <ItemList estado = {estadoFetch} listaItems = {listaItems} />
       </div>
