@@ -6,7 +6,7 @@ import {CartContext} from '../../CartContext'
 import './itemdetail.css'
 
 //  item = Lista de items / estado = fetch /
-export const ItemDetail = ({item, estado}) => {
+export const ItemDetail = ({item, estado, listaCatalogo}) => {
 
     const [compraEstado, setCompraEstado] = useState(false)
     const [contador, setContador] = useState(0);
@@ -30,16 +30,16 @@ export const ItemDetail = ({item, estado}) => {
         }
         
     }
-    
-    const compraVerificada = () => {
-        let cantPermitida;
-        contexto.listaCarrito.forEach(element => {
-            if(element.id === item.id) {cantPermitida=element.cantidad}
-        });
-    }
 
     const terminarCompra = () => {
         contexto.agregarProd(item.id, item, contador)
+        console.log(contador)
+        listaCatalogo.forEach(element => {
+            if (element.id===item.id) {
+                element.stock=element.stock-contador
+            }
+        });
+        console.log(listaCatalogo)
     }
 
 

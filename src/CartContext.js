@@ -8,17 +8,18 @@ export const Context = ({children}) => {
 
     const [cantCarrito, setCantidad] = useState(0)
 
-
     const calcularCantidad = () =>{
         let cantidadFinal = 0
         listaCarrito.forEach(prod => {
             cantidadFinal= cantidadFinal + prod.cantidad
         });
+        console.log("CANTIDAD FINAL------------------- "+cantidadFinal)
         return cantidadFinal
     }
 
     useEffect(()=>{
         setCantidad(calcularCantidad)
+        console.log("SE AGREGA ALGO AL CARRITO-------------------")
     }, [listaCarrito])
     
     const agregarProd = (id, item, cantidad) =>{
@@ -34,9 +35,11 @@ export const Context = ({children}) => {
                 },
             ])
         }else if(listaFiltrada.length === 1){
+            console.log("LENGTH ES IGUAL A 1 ---------------------------------------------")
             listaCarrito.forEach(i => {
-                if (i.id == id) {
+                if (i.id === id) {
                     i.cantidad=i.cantidad+cantidad
+                    console.log(i.cantidad=i.cantidad+cantidad)
                 }
             });
         }

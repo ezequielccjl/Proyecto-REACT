@@ -1,58 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {ItemDetail} from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+import {CartContext} from '../../CartContext'
 
 import './itemdetailcontainer.css'
 
-//IMPORT IMAGENES
-import dibujo from '../ItemListContainer/img-products/dibujo.png'
-import remeNascar from '../ItemListContainer/img-products/nascar.png'
-import remeSolaris from '../ItemListContainer/img-products/solaris.png'
-import remeOdyssey from '../ItemListContainer/img-products/2001.png'
-
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({listaCatalogo}) => {
 
     const [item, setItem] = useState({})
     const [estado, setEstado] = useState("En Proceso")
 
     const {itemId} = useParams()
 
-    let listaCatalogo = [
-            {
-              id: '346gYGfyfg',
-              title: 'Art Concept',
-              description: 'Remera Art Concept IWA 2021 Edition',
-              categoria: 'negro',
-              price: 1500,
-              picture: dibujo,
-              stock: 7
-          },{
-            id: '3748193789',
-            title: 'Nascar',
-            description: 'Remera NASCAR IWA 2020 Edition',
-            categoria: 'negro',
-            price: 1300,
-            picture: remeNascar,
-            stock: 4
-        },{
-            id: '5492549040',
-            title: 'Solaris',
-            description: 'Remera Solaris [Movie] IWA 2020 Edition',
-            categoria: 'negro',
-            price: 1250,
-            picture: remeSolaris,
-            stock: 11
-        },{
-          id: "aishd2JerR",
-          title: "2001 Odyssey",
-          description: "Remera Space Odyssey IWA 2021 Edition",
-          categoria: "negro",
-          price: 1200,
-          picture: remeOdyssey,
-          stock: 14
-        }
-    ]
-
+    let contexto = useContext(CartContext)
+    
     const simulacionFetch = () => {
 
         //Promise que simula pedido Fetch
@@ -89,7 +50,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className="cont-detail">
-            <ItemDetail item={item} estado={estado} />
+            <ItemDetail item={item} estado={estado} listaCatalogo={listaCatalogo} />
         </div>
     )
       

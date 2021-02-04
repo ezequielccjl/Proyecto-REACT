@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+
 .section-cart{
     height:100vh;    
     background: #919191;
@@ -5,4 +7,36 @@
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    flex-direction: column;
+}
+
+.cart-title{
+    font-family: Archivo, sans-serif;
+    margin-bottom: 2rem;
+}
+
+.div-item-carrito{
+    color: white;
+    padding: 1rem;
+    background-color:  rgb(27, 27, 27);
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.img-item-cart{
+    width: 10rem;
+}
+
+.desc-cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-item-title{
+    margin-bottom: 1rem;
 }

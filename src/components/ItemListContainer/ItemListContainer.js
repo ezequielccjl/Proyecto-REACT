@@ -6,16 +6,11 @@ import { useParams } from 'react-router-dom'
 import { ItemList } from '../ItemList/ItemList'
 import './itemlistcont.css'
 
-//IMPORT IMAGENES
-import dibujo from './img-products/dibujo.png'
-import remeNascar from './img-products/nascar.png'
-import remeSolaris from './img-products/solaris.png'
-import remeOdyssey from './img-products/2001.png'
 
-
-export const ItemListContainer = ({greeting}) => {
+export const ItemListContainer = ({greeting, listaCatalogo}) => {
 
   let contexto = useContext(CartContext)
+
 
   //Defino estados seteables para confirmación del "Fetch"
   const [estadoFetch, setEstado] = useState('En proceso')
@@ -23,43 +18,6 @@ export const ItemListContainer = ({greeting}) => {
 
   //Recibe params según el link en el que se encuentre
   const {categoryId} = useParams()
-
-  //Catalogo
-  let listaCatalogo = [
-    {
-        id: '346gYGfyfg',
-        title: 'Art Concept',
-        description: 'Remera Art Concept IWA 2021 Edition',
-        categoria: 'blanco',
-        price: 1500,
-        picture: dibujo,
-        stock: 7
-    },{
-        id: '3748193789',
-        title: 'Nascar',
-        description: 'Remera NASCAR IWA 2020 Edition',
-        categoria: 'negro',
-        price: 1300,
-        picture: remeNascar,
-        stock: 4
-    },{
-        id: '5492549040',
-        title: 'Solaris',
-        description: 'Remera Solaris [Movie] IWA 2020 Edition',
-        categoria: 'negro',
-        price: 1250,
-        picture: remeSolaris,
-        stock: 11
-    },{
-      id: "aishd2JerR",
-      title: "2001 Odyssey",
-      description: "Remera Space Odyssey IWA 2021 Edition",
-      categoria: "negro",
-      price: 1200,
-      picture: remeOdyssey,
-      stock: 14
-    }
-  ]
 
   //Función invocada con useEffect
   const simulacionFetch = () => {
@@ -89,6 +47,8 @@ export const ItemListContainer = ({greeting}) => {
   //Luego del render se ejecuta la función
   useEffect(() => {
     simulacionFetch();
+    console.log(contexto.listaCarrito)
+
   }, []);
 
   //Cada vez que se modifique el categoryId se setea una nueva lista
@@ -105,9 +65,6 @@ export const ItemListContainer = ({greeting}) => {
       <header className='header'>
         {greeting}
       </header>
-      {
-      console.log(contexto.listaCarrito)
-      }
       <div className='item-list row'>
         <ItemList estado = {estadoFetch} listaItems = {listaItems} />
       </div>

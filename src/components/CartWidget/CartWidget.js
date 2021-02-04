@@ -1,9 +1,10 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {CartContext} from '../../CartContext'
 
 import './carticon.css'
 
 export const CartWidget = () => {
+
     let contexto = useContext(CartContext)
 
     return (
