@@ -1,7 +1,7 @@
 import React from 'react'
-import { Item } from '../Item/Item'
+import { Item } from './Item'
 
-import '../../CSS/itemlist.css'
+import '../CSS/itemList.css'
 
 export const ItemList = ({estado, listaItems}) => {
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import {CartWidget} from '../CartWidget/CartWidget'
-import logo from './logo.png'
-import '../../CSS/navbar.css'
+import {CartWidget} from './CartWidget'
+import logo from '../imgs-icons/logo.png'
+import '../CSS/navbar.css'
 
 const NavBar = () => {
 

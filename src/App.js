@@ -1,10 +1,10 @@
 
 import './App.css';
-import NavBar from './components/NavBar/NavBar'
-import {ItemListContainer} from './components/ItemListContainer/ItemListContainer'
-import {Cart} from './components/Cart/Cart'
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import { SvgShapes } from './components/SvgShapes/SvgShapes'
+import NavBar from './components/NavBar'
+import {ItemListContainer} from './components/ItemListContainer'
+import {Cart} from './components/Cart'
+import ItemDetailContainer from './components/ItemDetailContainer'
+import { SvgShapes } from './components/SvgShapes'
 import {Context} from './CartContext'
 
 //IMPORT IMAGENES

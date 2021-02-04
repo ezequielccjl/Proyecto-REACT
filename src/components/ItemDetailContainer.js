@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {ItemDetail} from '../ItemDetail/ItemDetail'
+import {ItemDetail} from './ItemDetail'
 import { useParams } from 'react-router-dom'
-import {CartContext} from '../../CartContext'
+import {CartContext} from '../CartContext'
 
-import '../../CSS/itemdetailcontainer.css'
+import '../CSS/itemDetailContainer.css'
 
 const ItemDetailContainer = ({listaCatalogo}) => {
 

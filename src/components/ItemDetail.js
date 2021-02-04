@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react'
-import {ItemCount} from '../ItemCount/ItemCount'
+import {ItemCount} from './ItemCount'
 import {Link} from 'react-router-dom'
-import {CartContext} from '../../CartContext'
+import {CartContext} from '../CartContext'
 
-import '../../CSS/itemdetail.css'
+import '../CSS/itemDetail.css'
 
 //  item = Lista de items / estado = fetch /
 export const ItemDetail = ({item, estado, listaCatalogo}) => {
