@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import {ItemCount} from './ItemCount'
 import {Link} from 'react-router-dom'
 import {CartContext} from '../CartContext'
+import {Spinner} from './Spinner'
 
 import '../CSS/itemDetail.css'
 
@@ -33,19 +34,24 @@ export const ItemDetail = ({item, estado, listaCatalogo}) => {
 
     const terminarCompra = () => {
         contexto.agregarProd(item.id, item, contador)
-        console.log(contador)
+        //console.log(contador)
         listaCatalogo.forEach(element => {
             if (element.id===item.id) {
                 element.stock=element.stock-contador
             }
         });
+        contexto.setCantidad(contexto.cantCarrito+contador)
         console.log(listaCatalogo)
+        //console.log(contexto.cantCarrito)
     }
-
 
     return(
         <React.Fragment>
-            {estado === 'En Proceso' ? (<h3>{estado}</h3>) :  item && 
+            {estado === 'En Proceso' ? (<Spinner estado={estado}/>) 
+                
+                :
+                  
+                item && 
                 (
                     <div className="cont-item-detail">
                         <div className="cont-info">
@@ -69,7 +75,7 @@ export const ItemDetail = ({item, estado, listaCatalogo}) => {
                                         />
                                     :
                                     <Link to="/cart">
-                                        <button onClick={terminarCompra} className="btn-finalizar-compra">Terminar Compra</button>
+                                        <button onClick={terminarCompra} className="btn-finalizar-compra animate__animated animate__fadeInRight">Terminar Compra</button>
                                     </Link>
                                 }
                             </div>

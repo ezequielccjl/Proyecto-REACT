@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import {ItemDetail} from './ItemDetail'
 import { useParams } from 'react-router-dom'
-import {CartContext} from '../CartContext'
+
 
 import '../CSS/itemDetailContainer.css'
 
@@ -11,8 +11,6 @@ const ItemDetailContainer = ({listaCatalogo}) => {
     const [estado, setEstado] = useState("En Proceso")
 
     const {itemId} = useParams()
-
-    let contexto = useContext(CartContext)
     
     const simulacionFetch = () => {
 

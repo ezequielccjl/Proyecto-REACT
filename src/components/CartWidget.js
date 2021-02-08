@@ -1,5 +1,6 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {CartContext} from '../CartContext'
+import {Link} from 'react-router-dom'
 
 import '../CSS/cartIcon.css'
 
@@ -9,13 +10,16 @@ export const CartWidget = () => {
 
     return (
         <span>
-            <i className="fas fa-shopping-cart icon-nav fa-lg"></i>
+            <Link to="/cart">
+                <i className="fas fa-shopping-cart icon-nav fa-lg"></i>
+            </Link>
             
+            {contexto.cantCarrito>0&&
                 <span className="span-cant">
                     {contexto.cantCarrito}
                 </span>
+            }
             
-                
         </span>
         
     )

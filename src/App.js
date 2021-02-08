@@ -5,6 +5,7 @@ import {ItemListContainer} from './components/ItemListContainer'
 import {Cart} from './components/Cart'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import { SvgShapes } from './components/SvgShapes'
+import {Footer} from './components/Footer'
 import {Context} from './CartContext'
 
 //IMPORT IMAGENES
@@ -77,11 +78,17 @@ function App() {
           <Route path="/item/:itemId">
             <ItemDetailContainer listaCatalogo={listaCatalogo}/>
           </Route>
+
         </Switch>
 
+
       </Context>
+      
       {/*SVG SHAPE-DIVIDER*/}
       <SvgShapes />
+
+      <Footer />
+
       
     </BrowserRouter>
     

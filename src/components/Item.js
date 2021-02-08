@@ -7,7 +7,7 @@ export const Item =  ({item}) => {
 
     
     return(
-        <div className='cont-item'>
+        <div className='cont-item animate__animated animate__fadeIn'>
             <div id='div-stock'>
                 <span className='span-stock'>Stock disponible: {item.stock}</span>
             </div>
