@@ -40,9 +40,11 @@ export const Context = ({children}) => {
         }else if(listaFiltrada.length === 1){
             //Si bien este ELSE-IF no realiza ninguna función en particular, sin él, el CartWidget no se acumula
             //Creo que sirve como una especie de trigger en los effects
+
             listaCarrito.forEach(i => {
                 if (i.id === id) {
                     i.cantidad=i.cantidad
+                    console.log( i.cantidad=i.cantidad+cantidad )
                 }
             });
         }
@@ -50,8 +52,11 @@ export const Context = ({children}) => {
 
 //---------------------------------------------- ELIMINAR PRODUCTO (No funcional) -----------------------------------------------------
 
-    //Esta función esta asignada a un onClick en un botón dentro de Cart.js (Linea:30)
-    //Cuando se llama a la función se elimina el producto pero el problema es que cuando paso del ItemDetail al Cart se invoca por si misma
+    //Esta función está asignada a un onClick dentro de Cart.js (Linea:30)
+    //El problema con este método es que cuando se renderiza el componente, se ejecuta el onClick
+    //Para probar se puede descomentar el alert en la Linea:61
+    //Esto quiere decir que si quiero eliminar un producto del carrito, al querer renderizar el Cart.js ya se va a lanzar
+    //esta funcion y nada se va a agregar a la lista
 
     const eliminarProd = (i) => {
         let indice = listaCarrito.indexOf(i);
