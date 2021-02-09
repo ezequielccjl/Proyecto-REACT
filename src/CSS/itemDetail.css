@@ -61,7 +61,6 @@
     border-radius: 5px;
     border-style: solid;
     border-color: rgb(179, 179, 255);
-    text-decoration: none;
     background-color: transparent;
     font-size: 1rem;
     font-weight: 200;
@@ -69,3 +68,13 @@
     color: rgb(111, 111, 255);
     transition: all .1s ease-in-out;
 }
+
+.detail-precio > a{
+    text-decoration: none !important;
+}
+
+a:-webkit-any-link {
+    text-decoration: none !important;
+
+}
+

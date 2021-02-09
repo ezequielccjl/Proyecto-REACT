@@ -41,7 +41,7 @@ export const ItemDetail = ({item, estado, listaCatalogo}) => {
             }
         });
         contexto.setCantidad(contexto.cantCarrito+contador)
-        console.log(listaCatalogo)
+        //console.log(listaCatalogo)
         //console.log(contexto.cantCarrito)
     }
 

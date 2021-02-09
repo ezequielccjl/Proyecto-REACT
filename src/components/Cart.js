@@ -21,17 +21,25 @@ export const Cart = () => {
                                 <img className="img-item-cart" src={i.item.picture} alt="pic"></img>
                             </span>
                             <div className="desc-cart">
-                                <div className="cart-item-title">{i.item.title}</div>
-                                <div> Cantidad - {i.cantidad}</div>
+                                <div className="cart-item-title">{i.item.description}</div>
+                                <div> Cantidad x{i.cantidad}</div>
+                                <div>${context.calcularTotalItem(i.id)}</div>
                             </div>
-                            <div>
-                                <button>+</button>
-                                <button>-</button>    
+                            <div className="cont-botones-cart">
+                                <button className="btn-cart">+</button>
+                                <button className="btn-cart btn-cart-trash" onClick={context.eliminarProd(i)}>
+                                    <i className="far fa-trash-alt"></i>
+                                </button>
+                                <button className="btn-cart">-</button>    
                             </div>
                             
                         </div>
                     ))
                 }
+                <div className="precio-total">
+                    <span className="total-items">Items en carrito: {context.cantCarrito}</span>
+                    <span className="total-valor">Total: ${context.calcularTotalCarrito()}</span>
+                </div>
             </div>
             
             }

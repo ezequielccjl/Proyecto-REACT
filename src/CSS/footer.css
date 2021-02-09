@@ -1,8 +1,18 @@
 .section-footer{
     height: 40vh;
     background-color: #292929;
+    display: flex;
+    flex-direction: row;
 }
 
 .img-footer{
     width: 15rem;
+}
+
+.contacto-footer{
+    color: white;
+}
+
+.contacto-footer > i{
+    margin-right: 1rem;
 }

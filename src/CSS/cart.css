@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 .section-cart{
-    height:100vh;    
+    height:100vh;
+    padding-top: 8vh;
     background: #919191;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     flex-direction: column;
+
+    font-family: Archivo, sans;
 }
 
 .cart-title{
@@ -37,6 +41,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    right: 35rem;
 }
 
 .cart-item-title{
@@ -45,4 +51,44 @@
 
 .cont-cart{
     width: 80%;
+}
+
+.cont-botones-cart{
+    position: absolute;
+    right: 10rem;
+}
+
+.btn-cart{
+    color: white;
+    font-size: 2rem;
+    width: 4rem;
+    height: 3rem;
+    margin-left: 1rem;
+    background: #292929;
+    border-radius: 2rem;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.precio-total{
+    display: flex;
+    justify-content: right;
+    border-top-color: black;
+    border-top-width: 1px;
+    border-top-style: solid;
+    font-size: 1.5rem; 
+    
+}
+
+.total-valor{
+    margin-top: 1rem;
+}
+
+.total-items{
+    margin-right: 5rem;
+    margin-top: 1rem !important;
+}
+
+.btn-cart-trash{
+    font-size: 1.7rem;
 }
