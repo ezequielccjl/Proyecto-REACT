@@ -7,52 +7,27 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 import {Footer} from './components/Footer'
 import {Context} from './CartContext'
 
-//IMPORT IMAGENES
-import dibujo from './img-products/dibujo.png'
-import remeNascar from './img-products/nascar.png'
-import remeSolaris from './img-products/solaris.png'
-import remeOdyssey from './img-products/2001.png'
+import {getFirestore} from './firebase'
 
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
+import { useEffect, useState } from 'react';
 
 function App() {
 
-  //Catalogo
-  let listaCatalogo = [
-    {
-        id: '346gYGfyfg',
-        title: 'Art Concept',
-        description: 'Remera Art Concept IWA 2021 Edition',
-        categoria: 'blanco',
-        price: 1500,
-        picture: dibujo,
-        stock: 7
-    },{
-        id: '3748193789',
-        title: 'Nascar',
-        description: 'Remera NASCAR IWA 2020 Edition',
-        categoria: 'negro',
-        price: 1300,
-        picture: remeNascar,
-        stock: 4
-    },{
-        id: '5492549040',
-        title: 'Solaris',
-        description: 'Remera Solaris [Movie] IWA 2020 Edition',
-        categoria: 'negro',
-        price: 1250,
-        picture: remeSolaris,
-        stock: 11
-    },{
-    id: "aishd2JerR",
-    title: "2001 Odyssey",
-    description: "Remera Space Odyssey IWA 2021 Edition",
-    categoria: "negro",
-    price: 1200,
-    picture: remeOdyssey,
-    stock: 14
-    }
-]
+  const [listaCatalogo, setCatalogo] = useState([])
+
+  useEffect(()=>{
+    let db = getFirestore();
+    let itemsDb = db.collection("catalogo")
+    itemsDb.get()
+      .then((querySnapshot) =>{
+        querySnapshot === 0 && console.log("NO HAY RESULTADOS")
+        let arrayItems = querySnapshot.docs.map((doc)=> doc.data())
+        console.log("arrayItems: ", arrayItems)
+        setCatalogo(arrayItems)
+      })
+
+  }, [])
 
   return (
     <BrowserRouter>
