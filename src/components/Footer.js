@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import '../CSS/footer.css'
 import {SvgShapes} from './SvgShapes'
 
 import logo from '../imgs-icons/logo.png'
-import logo2 from '../imgs-icons/logo2.png'
 
 export const Footer = ()=>{
 

@@ -9,10 +9,13 @@ export const ItemList = ({estado, listaItems}) => {
     return (
         
         <div className='cont-lista-catalogo col-10'>
-            {estado === 'Exitoso' &&
+            {estado === 'Exitoso' ?
             listaItems?.map((i) => (
                 <Item key={i.id} item={i} />
-            ))}
+            ))
+                :
+                <div>{estado}</div>
+            }
 
         </div>
 
