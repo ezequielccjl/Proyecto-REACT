@@ -13,7 +13,7 @@ export const Item =  ({item}) => {
             </div>
 
             <Link to={`/item/${item.id}`}>
-                <img  src={item.picture} alt='item1'></img>
+                <img  src={item.img} alt='item1'></img>
             </Link>
 
             <div className='titulo-item'>{item.title}</div>
