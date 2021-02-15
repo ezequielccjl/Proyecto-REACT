@@ -44,7 +44,7 @@ const NavBar = () => {
             {/*Mapeo de categorias con etiquetas Link*/}
             {listaCategorias.map((cat)=>{
                 return (
-                    <Link key={cat.nombre} to={`/category/${cat.nombre}`}>
+                    <Link key={cat.nombre} to={`/category/${cat.id}`}>
                         {cat.nombre.charAt(0).toUpperCase() + cat.nombre.substring(1, cat.nombre.length)} 
                     </Link>
                 )

@@ -7,7 +7,7 @@ import {Spinner} from './Spinner'
 import '../CSS/itemDetail.css'
 
 //  item = Lista de items / estado = fetch /
-export const ItemDetail = ({item, estado, listaCatalogo}) => {
+export const ItemDetail = ({item, estado}) => {
 
     const [compraEstado, setCompraEstado] = useState(false)
     const [contador, setContador] = useState(0);
@@ -35,7 +35,7 @@ export const ItemDetail = ({item, estado, listaCatalogo}) => {
     const terminarCompra = () => {
         contexto.agregarProd(item.id, item, contador)
         //console.log(contador)
-        listaCatalogo.forEach(element => {
+        contexto.listaCatalogo.forEach(element => {
             if (element.id===item.id) {
                 element.stock=element.stock-contador
             }
@@ -55,7 +55,7 @@ export const ItemDetail = ({item, estado, listaCatalogo}) => {
                 (
                     <div className="cont-item-detail">
                         <div className="cont-info">
-                            <img className="img-detail" src={item.picture} alt="imgProduct"></img>
+                            <img className="img-detail" src={item.img} alt="imgProduct"></img>
                             <div className="cont-info-item">
                                 <h3 className="detail-title">{item.title}</h3>
                                 <h4 className="detail-desc">{item.description}</h4>

@@ -66,8 +66,19 @@
     margin-left: 1rem;
     background: #292929;
     border-radius: 2rem;
-    border-width: 1px;
+    border: none;
     cursor: pointer;
+    outline: 0;
+    animation: 1s ease-in-out;
+}
+
+.btn-cart:focus{
+    border: none !important;
+    outline: 0;
+}
+
+.btn-cart:active{
+    background-color: #575757;
 }
 
 .precio-total{
