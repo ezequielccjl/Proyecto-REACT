@@ -1,50 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import {CartContext} from '../CartContext'
 import { useParams } from 'react-router-dom'
 import { ItemList } from './ItemList'
-import {getFirestore} from '../firebase'
 
 import '../CSS/itemListCont.css'
 
-
 export const ItemListContainer = ({greeting}) => {
 
-  //Defino estados seteables para confirmación del "Fetch"
-  const [estadoFetch, setEstado] = useState('En proceso')
+  let contexto = useContext(CartContext)
+
   const [listaItems, setListaMostrar] = useState([]) 
   
   //Recibe params según el link en el que se encuentre
   const {categoryId} = useParams()
 
-  const [listaCatalogo, setCatalogo] = useState([])
-
-  useEffect(()=>{
-
-    let db = getFirestore();
-    let itemsDb = db.collection("catalogo")
-    itemsDb.get()
-      .then((querySnapshot) =>{
-        querySnapshot.size > 0 && setEstado('Exitoso')
-        let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
-        setCatalogo(arrayAMostrar)
-            
-        console.log("arrayItems: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
-      })
-
-  }, [])
-
-  useEffect(() => {
-    console.log("listaCatalogo: ", listaCatalogo) //Lista llena
-
-  }, [listaCatalogo])
-
-
   //Cada vez que se modifique el categoryId se setea una nueva lista
   useEffect(()=>{
-    setListaMostrar(listaCatalogo.filter(item => item.categoria===categoryId))
+    setListaMostrar(contexto.listaCatalogo.filter(item => item.categoryId===categoryId))
 
     //En caso de que el categoryId no sea ninguna categoría quiero que me muestre todos los productos
-    categoryId===undefined&&setListaMostrar(listaCatalogo)
-  }, [categoryId, listaCatalogo])
+    categoryId===undefined&&setListaMostrar(contexto.listaCatalogo)
+  }, [categoryId, contexto.listaCatalogo])
 
   return (
     <div className='item-list-container'>
@@ -52,7 +28,7 @@ export const ItemListContainer = ({greeting}) => {
         {greeting}
       </header>
       <div className='item-list row'>
-        <ItemList estado = {estadoFetch} listaItems = {listaItems} />
+        <ItemList estado = {contexto.estado} listaItems = {listaItems} />
       </div>
         
     </div>

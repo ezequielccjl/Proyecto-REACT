@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react'
+import {getFirestore} from './firebase'
 
 export const CartContext = React.createContext();
 
@@ -7,6 +8,31 @@ export const Context = ({children}) => {
     const [listaCarrito, setCarrito] = useState([])
 
     const [cantCarrito, setCantidad] = useState(0)
+
+    const [listaCatalogo, setCatalogo] = useState([])
+    //Defino estados seteables para confirmación del "Fetch"
+    const [estado, setEstado] = useState('En proceso')
+
+//----------------------------------- OBTENIENDO CATALOGO --------------------------------------------
+
+    useEffect(()=>{
+
+    let db = getFirestore();
+    let itemsDb = db.collection("catalogo")
+    itemsDb.get()
+      .then((querySnapshot) =>{
+        querySnapshot.size > 0 && setEstado('Exitoso')
+        let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
+        setCatalogo(arrayAMostrar)
+            
+        console.log("arrayItems: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
+      })
+
+    }, [])
+
+    useEffect(() => {
+        console.log("listaCatalogo: ", listaCatalogo) //Lista llena
+    }, [listaCatalogo])
 
 //---------------------------------------------------------------------------------------------------
 
@@ -92,7 +118,7 @@ export const Context = ({children}) => {
 //---------------------------------------------------------------------------------------------------
 
     return(
-        <CartContext.Provider value={{listaCarrito, agregarProd, cantCarrito, setCantidad, calcularTotalItem, calcularTotalCarrito, eliminarProd}}>
+        <CartContext.Provider value={{listaCarrito, agregarProd, cantCarrito, setCantidad, calcularTotalItem, calcularTotalCarrito, eliminarProd, estado, listaCatalogo}}>
             {children}
         </CartContext.Provider>
     )

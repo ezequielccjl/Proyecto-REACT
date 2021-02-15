@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import {getFirestore} from '../firebase'
 
 import {CartWidget} from './CartWidget'
 import logo from '../imgs-icons/logo.png'
@@ -9,7 +10,28 @@ const NavBar = () => {
 
 
     //Para mapeo de Categorias
-    const listaCategorias = ['negro', 'blanco']
+    const [listaCategorias, setListaCaterogias] = useState([])
+
+    //----------------------------------- OBTENIENDO CATALOGO --------------------------------------------
+
+    useEffect(()=>{
+
+        let db = getFirestore();
+        let itemsDb = db.collection("categorias")
+        itemsDb.get()
+          .then((querySnapshot) =>{
+            querySnapshot.size > 0 && console.log("Categorias cargadas con exito")
+            let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
+            setListaCaterogias(arrayAMostrar)
+                
+            console.log("arrayCategorias: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
+        })
+    
+    }, [])
+    
+    useEffect(() => {
+        console.log("listaCategorias: ", listaCategorias) //Lista llena
+    }, [listaCategorias])
     
     return(
         <div className = 'container-nav'>
@@ -22,8 +44,8 @@ const NavBar = () => {
             {/*Mapeo de categorias con etiquetas Link*/}
             {listaCategorias.map((cat)=>{
                 return (
-                    <Link key={cat} to={`/category/${cat}`}>
-                        {cat.charAt(0).toUpperCase() + cat.substring(1, cat.length)} 
+                    <Link key={cat.nombre} to={`/category/${cat.nombre}`}>
+                        {cat.nombre.charAt(0).toUpperCase() + cat.nombre.substring(1, cat.nombre.length)} 
                     </Link>
                 )
             })}
