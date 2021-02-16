@@ -9,6 +9,8 @@ export const Context = ({children}) => {
 
     const [cantCarrito, setCantidad] = useState(0)
 
+    const [total, setTotal] = useState(0)
+
     const [listaCatalogo, setCatalogo] = useState([])
     //Defino estados seteables para confirmación del "Fetch"
     const [estado, setEstado] = useState('En proceso')
@@ -115,13 +117,13 @@ export const Context = ({children}) => {
             total = total + elem.item.price*elem.cantidad
             
         });
-        return total;
+        setTotal(total)
     }
 
 //---------------------------------------------------------------------------------------------------
 
     return(
-        <CartContext.Provider value={{listaCarrito, agregarProd, cantCarrito, setCantidad, calcularTotalItem, calcularTotalCarrito, eliminarProd, estado, listaCatalogo}}>
+        <CartContext.Provider value={{listaCarrito, agregarProd, cantCarrito, setCantidad, calcularTotalItem, calcularTotalCarrito, eliminarProd, estado, listaCatalogo, total}}>
             {children}
         </CartContext.Provider>
     )

@@ -34,15 +34,12 @@ export const ItemDetail = ({item, estado}) => {
 
     const terminarCompra = () => {
         contexto.agregarProd(item.id, item, contador)
-        //console.log(contador)
         contexto.listaCatalogo.forEach(element => {
             if (element.id===item.id) {
                 element.stock=element.stock-contador
             }
         });
         contexto.setCantidad(contexto.cantCarrito+contador)
-        //console.log(listaCatalogo)
-        //console.log(contexto.cantCarrito)
     }
 
     return(
