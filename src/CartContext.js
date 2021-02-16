@@ -23,6 +23,9 @@ export const Context = ({children}) => {
       .then((querySnapshot) =>{
         querySnapshot.size > 0 && setEstado('Exitoso')
         let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
+        querySnapshot.forEach(element => {
+            console.log(element.id)
+        });
         setCatalogo(arrayAMostrar)
             
         console.log("arrayItems: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
