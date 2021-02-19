@@ -23,7 +23,12 @@ export const Context = ({children}) => {
     let itemsDb = db.collection("catalogo")
     itemsDb.get()
       .then((querySnapshot) =>{
-        querySnapshot.size > 0 && setEstado('Exitoso')
+        if(querySnapshot.size > 0){
+            
+            setEstado('Exitoso')
+            document.querySelector(".item-list-container").classList.remove("estado-cargando")
+            
+        }
         let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
         querySnapshot.forEach(element => {
             console.log(element.id)

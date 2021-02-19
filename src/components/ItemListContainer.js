@@ -23,7 +23,7 @@ export const ItemListContainer = ({greeting}) => {
   }, [categoryId, contexto.listaCatalogo])
 
   return (
-    <div className='item-list-container'>
+    <div className='item-list-container estado-cargando'>
       <header className='header text-center'>
         {greeting}
       </header>

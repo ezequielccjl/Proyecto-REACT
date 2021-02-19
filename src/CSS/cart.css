@@ -122,6 +122,10 @@
     .img-cont-cart{
         padding: 0;
     }
+    .section-cart{
+        height:auto;
+        padding-bottom:2rem;
+    }
 
     .img-item-cart{
         width: 7rem;

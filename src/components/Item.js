@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import '../CSS/item.css'
 
 import {Link} from 'react-router-dom'
 
 export const Item =  ({item}) => {
 
+    useEffect(()=>document.querySelector(".item-list-container").classList.remove("estado-cargando"),[])
     
     return(
         <div className='cont-item animate__animated animate__fadeIn col-xl-3 col-lg-3 col-sm-12'>

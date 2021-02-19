@@ -1,12 +1,16 @@
 .cont-lista-catalogo{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .cont-lista-catalogo > .animate__animated{
     animation-duration: 1500ms !important;
 }
 
+.item-list{
+    padding-bottom: 2rem;
+}
 
 @media (max-width: 768px) {
     .item-list{
