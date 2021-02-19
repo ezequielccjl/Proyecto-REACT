@@ -44,16 +44,16 @@ export const Cart = () => {
                 
                 {
                     context.listaCarrito.map((i) => (
-                        <div className="div-item-carrito" key={i.id}>
-                            <span>
+                        <div className="div-item-carrito row" key={i.id}>
+                            <span className="col-xl-3 col-sm-3 col-xs-12 img-cont-cart">
                                 <img className="img-item-cart" src={i.item.img} alt="pic"></img>
                             </span>
-                            <div className="desc-cart">
-                                <div className="cart-item-title">{i.item.description}</div>
+                            <div className="desc-cart col-xl-7 col-sm-7 col-xs-12">
+                                <div className="cart-item-title text-center">{i.item.description}</div>
                                 <div> Cantidad x{i.cantidad}</div>
                                 <div>${context.calcularTotalItem(i.id)}</div>
                             </div>
-                            <div className="cont-botones-cart">
+                            <div className="cont-botones-cart col-xl-2 col-sm-2 col-xs-12">
                                 {/* <button className="btn-cart">+</button> */}
                                 <button className="btn-cart btn-cart-trash" onClick={context.eliminarProd(i)}>
                                     <i className="far fa-trash-alt"></i>

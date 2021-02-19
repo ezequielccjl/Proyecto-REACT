@@ -21,6 +21,10 @@
     text-decoration: none;
 }
 
+.container-nav > p{
+    margin: 0 !important;
+}
+
 .app{
     margin: 0;
     padding: 0;
@@ -36,4 +40,10 @@
 
 .span-cant{
     color:white
+}
+
+@media (max-width: 768px) {
+    .img-logo{
+        width: 5rem;
+    }
 }

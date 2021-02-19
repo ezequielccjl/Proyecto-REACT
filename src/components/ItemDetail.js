@@ -50,32 +50,30 @@ export const ItemDetail = ({item, estado}) => {
                   
                 item && 
                 (
-                    <div className="cont-item-detail">
-                        <div className="cont-info">
-                            <img className="img-detail" src={item.img} alt="imgProduct"></img>
-                            <div className="cont-info-item">
-                                <h3 className="detail-title">{item.title}</h3>
-                                <h4 className="detail-desc">{item.description}</h4>
-                                <ul className="detail-ul">
-                                    <li>100% Algodon</li>
-                                    <li>Color: Negro</li>
-                                    <li>Unisex</li>
-                                    <li>Stock Disponible: {item.stock}</li>
-                                </ul>
-                                <div className="detail-precio">${item.price}</div>
-                                {compraEstado===false ?
-                                    <ItemCount 
-                                        cont = {contador} 
-                                        handler={handlerCompra}
-                                        sumar = {sumarItem}
-                                        restar = {restarItem}
-                                        />
-                                    :
-                                    <Link to="/cart">
-                                        <button onClick={terminarCompra} className="btn-finalizar-compra animate__animated animate__fadeInRight">Terminar Compra</button>
-                                    </Link>
-                                }
-                            </div>
+                    <div className="cont-info row d-flex justify-content-center">
+                        <img className="img-detail col-xl-6 col-lg-6 col-sm-12" src={item.img} alt="imgProduct"></img>
+                        <div className="cont-info-item col-xl-6 col-lg-6 col-sm-12">
+                            <h3 className="detail-title">{item.title}</h3>
+                            <h4 className="detail-desc text-center">{item.description}</h4>
+                            <ul className="detail-ul text-center">
+                                <li>100% Algodon</li>
+                                <li>Color: Negro</li>
+                                <li>Unisex</li>
+                                <li>Stock Disponible: {item.stock}</li>
+                            </ul>
+                            <div className="detail-precio">${item.price}</div>
+                            {compraEstado===false ?
+                                <ItemCount 
+                                    cont = {contador} 
+                                    handler={handlerCompra}
+                                    sumar = {sumarItem}
+                                    restar = {restarItem}
+                                    />
+                                :
+                                <Link to="/cart">
+                                    <button onClick={terminarCompra} className="btn-finalizar-compra animate__animated animate__fadeInRight">Terminar Compra</button>
+                                </Link>
+                            }
                         </div>
                     </div>
                 )

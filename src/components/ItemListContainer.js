@@ -24,10 +24,10 @@ export const ItemListContainer = ({greeting}) => {
 
   return (
     <div className='item-list-container'>
-      <header className='header'>
+      <header className='header text-center'>
         {greeting}
       </header>
-      <div className='item-list row'>
+      <div className='item-list'>
         <ItemList estado = {contexto.estado} listaItems = {listaItems} />
       </div>
         

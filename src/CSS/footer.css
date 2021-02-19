@@ -1,8 +1,8 @@
 .section-footer{
-    height: 40vh;
     background-color: #292929;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 
 .img-footer{
@@ -10,9 +10,24 @@
 }
 
 .contacto-footer{
-    color: white;
+    margin-top: 1rem;
+    color: rgb(114, 114, 114);
+}
+
+.contacto-footer > i{
+    cursor: pointer;
+    transition-duration: 400ms;
+}
+.contacto-footer > i:hover{
+    color: rgb(179, 179, 179);
 }
 
 .contacto-footer > i{
     margin-right: 1rem;
+}
+
+.footer-copy{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: rgb(71, 71, 71);
 }

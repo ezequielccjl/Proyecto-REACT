@@ -6,3 +6,24 @@
 .cont-lista-catalogo > .animate__animated{
     animation-duration: 1500ms !important;
 }
+
+
+@media (max-width: 768px) {
+    .item-list{
+        padding-bottom: 2rem;
+    }
+    
+    .cont-lista-catalogo{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1030px) {
+    .item-list{
+        padding-bottom: 2rem;
+    }
+    
+    .cont-lista-catalogo{
+        justify-content: center;
+    }
+}

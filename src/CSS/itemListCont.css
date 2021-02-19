@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
 
 .item-list-container{
-    height: 100vh;
+    height: 95vh;
     padding-top: 5vh;
     background: #919191;
     display: flex;
@@ -11,7 +11,31 @@
 }
 
 .header{
-    margin-bottom: 6rem;
+    margin-bottom: 2.5rem;
     font-family: Chakra Petch;
     font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .item-list-container{
+    height: auto;
+    padding-top: 8vh;
+    }
+
+    .header{
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 1030px) { 
+    .item-list-container{
+        height: auto;
+        padding-top: 8vh;
+    }
+
+    .header{
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
 }

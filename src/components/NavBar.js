@@ -51,7 +51,7 @@ const NavBar = () => {
             })}
                     
             <Link to={'/'}>
-                <p>Todo</p>
+                Todo
             </Link>
 
             <CartWidget />
