@@ -2,11 +2,7 @@ import React from 'react'
 import '../CSS/footer.css'
 import {SvgShapes} from './SvgShapes'
 
-import logo from '../imgs-icons/logo.png'
-
 export const Footer = ()=>{
-
-    let img = logo;
 
     return(
         <div>

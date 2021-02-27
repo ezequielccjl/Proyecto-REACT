@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import {getFirestore} from './firebase'
+import $ from 'jquery'
 
 export const CartContext = React.createContext();
 
@@ -30,18 +31,18 @@ export const Context = ({children}) => {
             
         }
         let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
-        querySnapshot.forEach(element => {
-            console.log(element.id)
-        });
+        //querySnapshot.forEach(element => {
+        //    console.log(element.id)
+        //});
         setCatalogo(arrayAMostrar)
             
-        console.log("arrayItems: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
+        //console.log("arrayItems: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
       })
 
     }, [])
 
     useEffect(() => {
-        console.log("listaCatalogo: ", listaCatalogo) //Lista llena
+        //console.log("listaCatalogo: ", listaCatalogo) //Lista llena
     }, [listaCatalogo])
 
 //---------------------------------------------------------------------------------------------------
@@ -88,16 +89,25 @@ export const Context = ({children}) => {
 
 //---------------------------------------------- ELIMINAR PRODUCTO (No funcional) -----------------------------------------------------
 
-    //Esta función está asignada a un onClick dentro de Cart.js (Linea:30)
-    //El problema con este método es que cuando se renderiza el componente, se ejecuta el onClick
-    //Para probar se puede descomentar el alert en la Linea:61
-    //Esto quiere decir que si quiero eliminar un producto del carrito, al querer renderizar el Cart.js ya se va a lanzar
-    //esta funcion y nada se va a agregar a la lista
+    function eliminarProd(item){
 
-    const eliminarProd = (i) => {
-        let indice = listaCarrito.indexOf(i);
-        //context.listaCarrito.splice(indice,1)
-        //alert("Se activa botón EliminarProd")
+        let cantVolverStock = item.cantidad;
+        let indice = listaCarrito.indexOf(item);
+        
+        listaCarrito.splice(indice,1)
+        
+        
+        listaCatalogo.forEach(elem => {
+            if (elem.id===item.id) {
+                elem.stock = elem.stock+cantVolverStock
+            }
+        });
+
+        setCarrito(listaCarrito)
+        setCatalogo(listaCatalogo)
+        setCantidad(calcularCantidad())
+        calcularTotalCarrito()
+        
     }
 
 //--------------------------------------------- CALCULAR TOTAL ------------------------------------------------------

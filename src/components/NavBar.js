@@ -24,14 +24,15 @@ const NavBar = () => {
             let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
             setListaCaterogias(arrayAMostrar)
                 
-            console.log("arrayCategorias: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
+            //console.log("arrayCategorias: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
         })
     
     }, [])
-    
+    /*
     useEffect(() => {
         console.log("listaCategorias: ", listaCategorias) //Lista llena
     }, [listaCategorias])
+    */
     
     return(
         <div className = 'container-nav'>

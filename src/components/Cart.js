@@ -44,7 +44,9 @@ export const Cart = () => {
                 
                 {
                     context.listaCarrito.map((i) => (
+                        
                         <div className="div-item-carrito row" key={i.id}>
+                            {/*console.log(i)*/}
                             <span className="col-xl-3 col-sm-3 col-xs-12 img-cont-cart">
                                 <img className="img-item-cart" src={i.item.img} alt="pic"></img>
                             </span>
@@ -55,7 +57,10 @@ export const Cart = () => {
                             </div>
                             <div className="cont-botones-cart col-xl-2 col-sm-2 col-xs-12">
                                 {/* <button className="btn-cart">+</button> */}
-                                <button className="btn-cart btn-cart-trash" onClick={context.eliminarProd(i)}>
+                                <button className="btn-cart btn-cart-trash" onClick={()=>{
+                                    context.eliminarProd(i)
+                                }}>
+                                    <span className="id-display-none">{i.id}</span>
                                     <i className="far fa-trash-alt"></i>
                                 </button>
                                 {/* <button className="btn-cart">-</button> */}

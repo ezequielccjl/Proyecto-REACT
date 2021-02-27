@@ -88,4 +88,9 @@
     align-items: center;
     flex-direction: column;
     height: 63.6vh;
+    
+  }
+
+  .cont-snipper h3{
+    font-size: 1.3rem;
   }

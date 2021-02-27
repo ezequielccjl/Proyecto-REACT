@@ -12,6 +12,11 @@
     padding-bottom: 2rem;
 }
 
+.item-list .row{
+    margin-right: 0;
+    margin-left: 0;
+}
+
 @media (max-width: 768px) {
     .item-list{
         padding-bottom: 2rem;
