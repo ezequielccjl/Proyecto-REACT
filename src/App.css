@@ -60,3 +60,8 @@
 .custom-shape-divider-bottom-1613709044 .shape-fill {
   fill: #292929;
 }
+
+.row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

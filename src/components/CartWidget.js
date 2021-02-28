@@ -9,18 +9,18 @@ export const CartWidget = () => {
     let contexto = useContext(CartContext)
 
     return (
-        <span>
+        <div className="cont-cart-widget">
             <Link to="/cart">
                 <i className="fas fa-shopping-cart icon-nav fa-lg"></i>
             </Link>
             
             {contexto.cantCarrito>0&&
-                <span className="span-cant">
+                <div className="span-cant">
                     {contexto.cantCarrito}
-                </span>
+                </div>
             }
             
-        </span>
+        </div>
         
     )
 }

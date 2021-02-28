@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import $ from 'jquery'
 import {getFirestore} from '../firebase'
 
 import {CartWidget} from './CartWidget'
 import logo from '../imgs-icons/logo.png'
+import icon from '../imgs-icons/arrow-down.svg'
 import '../CSS/navbar.css'
 
 const NavBar = () => {
@@ -11,6 +13,11 @@ const NavBar = () => {
 
     //Para mapeo de Categorias
     const [listaCategorias, setListaCaterogias] = useState([])
+
+    function catalogoHandler() {
+        $(".cont_menu_catalogo").toggleClass("bajar_menu_catalogo");
+        $(".arrow-cont").toggleClass("voltear-arrow-cont")
+    }
 
     //----------------------------------- OBTENIENDO CATALOGO --------------------------------------------
 
@@ -28,20 +35,28 @@ const NavBar = () => {
         })
     
     }, [])
-    /*
-    useEffect(() => {
-        console.log("listaCategorias: ", listaCategorias) //Lista llena
-    }, [listaCategorias])
-    */
+
+    useEffect(()=>{
+
+        const opCatalogo = document.querySelector(".arrow-cont")
+
+        opCatalogo.addEventListener("click", catalogoHandler)
+        
+        return ()=>{
+            opCatalogo.removeEventListener("click", catalogoHandler)
+        }
+
+    },[])
     
     return(
         <div className = 'container-nav'>
-            <p>
+            <div>
                 <Link to={`/`}>
                     <img id='logo-web' className = 'img-logo' src={logo} alt = 'logo'></img>
                 </Link>
-            </p>
+            </div>
 
+            <div className="arrow-cont"></div>
             {/*Mapeo de categorias con etiquetas Link*/}
             {listaCategorias.map((cat)=>{
                 return (
@@ -56,6 +71,22 @@ const NavBar = () => {
             </Link>
 
             <CartWidget />
+
+            <div className="cont_menu_catalogo" >
+                <ul className="ul_menu_catalogo">
+                        {listaCategorias.map((cat)=>{
+                            return (
+                                <Link key={cat.nombre} to={`/category/${cat.id}`}>
+                                    <li className="li_menu-catalogo">
+                                        {cat.nombre.charAt(0).toUpperCase() + cat.nombre.substring(1, cat.nombre.length)}
+                                    </li> 
+                                </Link>
+                            )
+                        })}
+                    
+                </ul>
+            </div>
+            
         </div>
     )
     

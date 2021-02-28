@@ -31,19 +31,12 @@ export const Context = ({children}) => {
             
         }
         let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 
-        //querySnapshot.forEach(element => {
-        //    console.log(element.id)
-        //});
+        
         setCatalogo(arrayAMostrar)
             
-        //console.log("arrayItems: ", querySnapshot.docs.map((doc)=> doc.data())) //Lista llena
       })
 
     }, [])
-
-    useEffect(() => {
-        //console.log("listaCatalogo: ", listaCatalogo) //Lista llena
-    }, [listaCatalogo])
 
 //---------------------------------------------------------------------------------------------------
 

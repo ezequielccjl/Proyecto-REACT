@@ -1,40 +1,21 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
+import $ from 'jquery'
 import '../CSS/cart.css'
 import {CartContext} from '../CartContext'
 import {SpinnerCart} from './SpinnerCart'
-import {getFirestore} from '../firebase'
-import firebase from 'firebase/app'
+
+
+import {ModalCart} from './ModalCart'
 
 export const Cart = () => {
 
     const context = useContext(CartContext)
-    const [compra, setCompra] = useState({})
-    const [compraId, setCompraId] = useState('')
 
-    const handlerCompraFinal = () => {
-        const db = getFirestore()
-        const orderDb = db.collection("compras")
-        orderDb.add(compra)
-            .then(({id})=>{
-                setCompraId(id)
-            })
-            .catch((e)=> console.log("Ocurrió un error AÑADIENDO COMPRA ", e))
-            .finally(() => console.log("Proceso de compra FINALIZADO"))
+    const handlerModal = () => {
+        $(".modal_cart").toggleClass("bajar_modal")
+        console.log("BAJA")
     }
-
-    useEffect(()=>{
-        context.calcularTotalCarrito()
-    }, [context.listaCarrito])
-
-    useEffect(()=>{
-        setCompra({
-            cliente: 'Ezequiel',
-            items: context.listaCarrito,
-            fecha: firebase.firestore.Timestamp.fromDate(new Date()),
-            total: context.total
-        })
-    }, [context.total])
-
+    
     return(
         <div className="section-cart">
             {context.cantCarrito===0?<SpinnerCart />
@@ -56,14 +37,12 @@ export const Cart = () => {
                                 <div>${context.calcularTotalItem(i.id)}</div>
                             </div>
                             <div className="cont-botones-cart col-xl-2 col-sm-2 col-xs-12">
-                                {/* <button className="btn-cart">+</button> */}
                                 <button className="btn-cart btn-cart-trash" onClick={()=>{
                                     context.eliminarProd(i)
                                 }}>
                                     <span className="id-display-none">{i.id}</span>
                                     <i className="far fa-trash-alt"></i>
                                 </button>
-                                {/* <button className="btn-cart">-</button> */}
                             </div>
                             
                         </div>
@@ -73,15 +52,17 @@ export const Cart = () => {
                     <span className="total-items">Items en carrito: {context.cantCarrito}</span>
                     <span className="total-valor">Total: ${context.total}</span>
                 </div>
-                <div>
-                    <button className="btn-cart-final" onClick={handlerCompraFinal}>Confirmar compra</button>
-                    {compraId && <div>{compraId}</div>}
+                <div className="cont-btn-final">
+                    <button className="btn-cart-final" onClick={handlerModal}>Confirmar compra</button>
+                    
                 </div>
-            </div>
-            
-            }
+
                 
-            
+            </div>
+            }
+
+            <ModalCart handlerModal={handlerModal}/>   
+        
         </div>
     )
 }
