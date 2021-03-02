@@ -35,4 +35,8 @@
     .cont-lista-catalogo{
         justify-content: center;
     }
+
+    .cargando_landing{
+        height: 45vh;
+    }
 }

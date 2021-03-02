@@ -34,12 +34,14 @@ export const Context = ({children}) => {
         
         setCatalogo(arrayAMostrar)
             
-      })
+    })
 
+    // Obtiene localStorage
+    localStorage.carrito ? setCarrito(JSON.parse(localStorage.carrito)) : localStorage.setItem('carrito', [])
+    
     }, [])
 
 
-    
     //Agregar producto al carrito
     const agregarProd = (id, item, cantidad) =>{
         let listaFiltrada = listaCarrito.filter((itemSelec) => itemSelec.id===id)
@@ -65,8 +67,6 @@ export const Context = ({children}) => {
             });
         }
     }
-
-
     
     //Eliminar producto de carrito
     function eliminarProd(item){
@@ -87,11 +87,12 @@ export const Context = ({children}) => {
         setCatalogo(listaCatalogo)
         setCantidad(calcularCantidad())
         calcularTotalCarrito()
+
+        localStorage.setItem('carrito', JSON.stringify(listaCarrito));
         
     }
 
 
-    
     //Calcular total de UN item
     const calcularTotalItem = (id) => {
         let total = 0;
@@ -103,7 +104,6 @@ export const Context = ({children}) => {
         });
         return total;
     }
-
 
     
     //Calcular total a pagar en carrito
@@ -127,17 +127,24 @@ export const Context = ({children}) => {
         
         //Manejo de clases para responsive
         if ($( window ).width() > 575){
-            cantidadFinal >= 2 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
+            listaCarrito.length >= 2 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
         }else{
-            cantidadFinal > 0 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
+            listaCarrito.length > 0 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
         }
-
+        console.log(cantidadFinal)
         return cantidadFinal
     }
 
     useEffect(()=>{
         setCantidad(calcularCantidad)
     },[cantCarrito])
+
+    // Actualiza localStorage
+    useEffect(() => {
+        localStorage.setItem('carrito', JSON.stringify(listaCarrito));
+        console.log(listaCarrito)
+        setCantidad(calcularCantidad)
+    }, [listaCarrito]);
 
 //---------------------------------------------------------------------------------------------------
 
@@ -150,6 +157,7 @@ export const Context = ({children}) => {
             setCantidad, 
             calcularTotalItem, 
             calcularTotalCarrito, 
+            calcularCantidad,
             eliminarProd, 
             estado, 
             listaCatalogo, 

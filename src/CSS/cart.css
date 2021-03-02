@@ -21,8 +21,6 @@
 
 .div-item-carrito{
     color: black;
-    /*padding: 1rem;*/
-    /*background-color:  rgba(27, 27, 27,0.5);*/
     font-size: 1.3rem;
     border-top-color: black;
     border-top-width: 1px;
@@ -180,7 +178,7 @@
 
 @media (min-width: 575px){
     .section-cart{
-        height:80vh;
+        height:81vh;
         padding-bottom:2rem;
     }
     

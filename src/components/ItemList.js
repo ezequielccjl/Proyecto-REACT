@@ -14,7 +14,7 @@ export const ItemList = ({estado, listaItems}) => {
                 <Item key={i.id} item={i} />
             ))
                 :
-                <div>{estado}</div>
+                <div className="cargando_landing">{estado}</div>
             }
 
         </div>
