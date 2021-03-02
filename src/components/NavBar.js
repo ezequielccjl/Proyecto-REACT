@@ -39,38 +39,44 @@ const NavBar = () => {
     useEffect(()=>{
 
         const opCatalogo = document.querySelector(".arrow-cont")
+        const ulCatalogo = document.querySelector(".ul_menu_catalogo")
 
         opCatalogo.addEventListener("click", catalogoHandler)
+        ulCatalogo.addEventListener("click", catalogoHandler)
         
         return ()=>{
             opCatalogo.removeEventListener("click", catalogoHandler)
+            ulCatalogo.removeEventListener("click", catalogoHandler)
         }
 
     },[])
     
     return(
-        <div className = 'container-nav'>
-            <div>
-                <Link to={`/`}>
-                    <img id='logo-web' className = 'img-logo' src={logo} alt = 'logo'></img>
-                </Link>
-            </div>
-
-            <div className="arrow-cont"></div>
-            {/*Mapeo de categorias con etiquetas Link*/}
-            {listaCategorias.map((cat)=>{
-                return (
-                    <Link key={cat.nombre} to={`/category/${cat.id}`}>
-                        {cat.nombre.charAt(0).toUpperCase() + cat.nombre.substring(1, cat.nombre.length)} 
+        <div className="cont_nav_menu">
+            
+            <div className = 'container-nav'>
+                <div>
+                    <Link to={`/`}>
+                        <img id='logo-web' className = 'img-logo' src={logo} alt = 'logo'></img>
                     </Link>
-                )
-            })}
-                    
-            <Link to={'/'}>
-                Todo
-            </Link>
+                </div>
 
-            <CartWidget />
+                <div className="arrow-cont"></div>
+                {/*Mapeo de categorias con etiquetas Link*/}
+                {listaCategorias.map((cat)=>{
+                    return (
+                        <Link key={cat.nombre} to={`/category/${cat.id}`}>
+                            {cat.nombre.charAt(0).toUpperCase() + cat.nombre.substring(1, cat.nombre.length)} 
+                        </Link>
+                    )
+                })}
+                        
+                <Link to={'/'}>
+                    Todo
+                </Link>
+
+                <CartWidget />
+            </div>
 
             <div className="cont_menu_catalogo" >
                 <ul className="ul_menu_catalogo">

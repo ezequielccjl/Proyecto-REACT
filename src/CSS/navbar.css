@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
 
+.cont_nav_menu{
+    display: flex;
+    justify-content: center;
+}
+
 .container-nav{
     z-index: 10;
     position: fixed;
@@ -74,8 +79,8 @@
 .cont_menu_catalogo{
     position: fixed;
     top:-10rem;
-    z-index: 1;
-    margin-top: 3.3rem;
+    z-index: 5;
+    margin-top: 3.4rem;
     background-color: rgb(41, 41, 41);
     border-top-width: 2px;
     border-top-color: rgb(161, 0, 0);

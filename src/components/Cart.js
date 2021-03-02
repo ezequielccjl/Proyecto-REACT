@@ -27,7 +27,6 @@ export const Cart = () => {
                     context.listaCarrito.map((i) => (
                         
                         <div className="div-item-carrito row" key={i.id}>
-                            {/*console.log(i)*/}
                             <span className="col-xl-3 col-sm-3 col-xs-12 img-cont-cart">
                                 <img className="img-item-cart" src={i.item.img} alt="pic"></img>
                             </span>

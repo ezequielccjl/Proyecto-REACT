@@ -46,6 +46,13 @@ export const Context = ({children}) => {
             cantidadFinal= cantidadFinal + prod.cantidad
         });
         
+        
+        if ($( window ).width() > 575){
+            cantidadFinal >= 2 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
+        }else{
+            cantidadFinal > 0 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
+        }
+
         return cantidadFinal
     }
 

@@ -62,23 +62,30 @@ export const ModalCart = ({handlerModal}) => {
             <div className="cont_form">
                 <div className="titulo_form text-center">Complete los campos</div>
 
-                <div className="cont_input">
+                <div className="cont_input width-100">
                     <label className="title_input">NOMBRE COMPLETO*</label>
                     <input className="un_input" type="text" required placeholder="Ingrese su nombre" id="input_nombre"></input>
                 </div>
+                
                 <div className="row">
-                    <div className="cont_input col-xl-6 col-lg-6 col-xs-12">
-                        <label className="title_input">CORREO*</label>
-                        <input className="un_input" type="text" required placeholder="Ingrese su mail" id="input_mail"></input>
-                    </div>
-                    <div className="cont_input col-xl-6 col-lg-6 col-xs-12">
+                    <div className="cont_input col-xl-6 col-sm-6 col-xs-12">
                         <label className="title_input">TELÉFONO*</label>
                         <input className="un_input" type="number" required placeholder="Ingrese su teléfono" id="input_tel"></input>
                     </div>
+                    <div className="cont_input col-xl-6 col-sm-6 col-xs-12">
+                        <label className="title_input">DNI*</label>
+                        <input className="un_input" type="number" required placeholder="Ingrese su DNI" id="input_dni"></input>
+                    </div>
                 </div>
-                <div className="cont_input">
-                    <label className="title_input">DNI*</label>
-                    <input className="un_input" type="number" required placeholder="Ingrese su DNI" id="input_dni"></input>
+
+                <div className="cont_input width-100">
+                    <label className="title_input">CORREO*</label>
+                    <input className="un_input" type="text" required placeholder="Ingrese su mail" id="input_mail"></input>
+                </div>
+
+                <div className="cont_input width-100">
+                    <label className="title_input">VERIFICACIÓN CORREO*</label>
+                    <input className="un_input" type="text" required placeholder="Ingrese su mail por segunda vez" id="input_mail_ver"></input>
                 </div>
                 
                 <button className="btn_final_form" onClick={handlerCompraFinal}>SUBMIT</button>

@@ -6,7 +6,7 @@ export const SpinnerCart = () => {
     return(
         <Link to="/">
             <div className="spinner-cart">
-                <h4>No hay elementos en carrito</h4>
+                <h4 className="text-center">No hay elementos en carrito</h4>
                 <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </div>
         </Link>
