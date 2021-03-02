@@ -27,7 +27,7 @@ export const Context = ({children}) => {
         if(querySnapshot.size > 0){
             
             setEstado('Exitoso')
-            document.querySelector(".item-list-container").classList.remove("estado-cargando")
+            //document.querySelector(".item-list-container").classList.remove("estado-cargando")
             
         }
         let arrayAMostrar = querySnapshot.docs.map((doc)=> doc.data()) 

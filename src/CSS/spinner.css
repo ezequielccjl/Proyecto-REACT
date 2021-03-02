@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+
 .lds-roller {
     display: inline-block;
     position: relative;
@@ -93,4 +95,5 @@
 
   .cont-snipper h3{
     font-size: 1.3rem;
+    font-family: "Archivo", sans-serif;
   }

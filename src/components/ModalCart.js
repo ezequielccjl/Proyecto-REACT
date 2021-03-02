@@ -15,6 +15,7 @@ export const ModalCart = ({handlerModal}) => {
 
     const [compra, setCompra] = useState({})
     const [compraId, setCompraId] = useState('')
+    const [spinnerHandler, setSpinner] = useState(false)
     const [formData, setFormData] = useState({
         nombre: '',
         tel: '',
@@ -28,6 +29,9 @@ export const ModalCart = ({handlerModal}) => {
     };
 
     const handlerCompraFinal = () => {
+
+        setSpinner(true)
+
         verificacionSubmit()
         console.log("Se hizo la VERIFICACION")
         console.log("compra: ", compra)
@@ -54,14 +58,15 @@ export const ModalCart = ({handlerModal}) => {
                 };
         
                 updateStock();
+
+                setSpinner(false)
+
                 
             })
         .catch((e)=> console.log("Ocurrió un error AÑADIENDO COMPRA ", e))
         .finally(() => {
             console.log("Proceso de compra FINALIZADO")
         })
-
-        
 
     }
 
@@ -81,7 +86,6 @@ export const ModalCart = ({handlerModal}) => {
     }
 
     useEffect(()=>{
-        console.log(formData)
 
         const newOrder = {
             cliente: formData,
@@ -98,7 +102,7 @@ export const ModalCart = ({handlerModal}) => {
         context.calcularTotalCarrito()
     }, [context.listaCarrito])
 
-    
+
     
     return(
         <div className="modal_cart">
@@ -165,11 +169,17 @@ export const ModalCart = ({handlerModal}) => {
                 
                 <button className="btn_final_form" onClick={handlerCompraFinal}>SUBMIT</button>
                 <button className="btn_final_form btn_volver" onClick={handlerModal}>Volver</button>
-                {compraId && 
+                {spinnerHandler ? 
+                    <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                : 
+                    compraId && 
+                    
                     <div className="cont_id_compra">
                         <div>Tu código de compra es:</div>
                         <div className="id__compra">{compraId}</div>
-                    </div>}
+                    </div>
+                    
+                }
 
             </div>
         </div>

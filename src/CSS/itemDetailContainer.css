@@ -1,7 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+
 .cont-detail{
     padding-top: 10vh;
     padding-bottom: 6.3vh;
     display: flex;
     justify-content: center;
     background: #919191;
+}
+
+.not_found{
+    height: 64vh;
+    padding-top: 3rem;
+    font-size: 1.5rem;
+    font-family: "Archivo", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not_found a{
+    margin-top: 2rem;
+    width: 80%;
+
+}
+
+.btn_not_found{
+    color: white;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border: none;
+    background-color: rgb(46, 46, 46);
+    border-radius: 2rem;
+    width: 100%;
+}
+
+.item-list-container .not_found{
+    height: auto;
+    padding-top: 0;
 }
