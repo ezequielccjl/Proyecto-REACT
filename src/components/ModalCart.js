@@ -30,58 +30,69 @@ export const ModalCart = ({handlerModal}) => {
 
     const handlerCompraFinal = () => {
 
-        setSpinner(true)
+        if (verificacionSubmit()){
 
-        verificacionSubmit()
-        console.log("Se hizo la VERIFICACION")
-        console.log("compra: ", compra)
-        const orderDb = db.collection("compras")
-        orderDb.add(compra)
-            .then(({id})=>{
-                setCompraId(id)
+            setSpinner(true)
+            console.log("Se hizo la VERIFICACION")
+            console.log("compra: ", compra)
+            const orderDb = db.collection("compras")
+            orderDb.add(compra)
+                .then(({id})=>{
+                    setCompraId(id)
 
-                const stampsToUpdate = db.collection('catalogo').where(
-                    firebase.firestore.FieldPath.documentId(),
-                    'in',
-                    context.listaCarrito.map((i) => i.id)
-                );
-        
-                const updateStock = async () => {
-                    const query = await stampsToUpdate.get();
-                    const batch = db.batch();
-                    query.docs.forEach((docSnapshot, idx) => {
-                      batch.update(docSnapshot.ref, {
-                        stock: docSnapshot.data().stock - context.listaCarrito[idx].cantidad,
-                      });
-                    });
-                    batch.commit();
-                };
-        
-                updateStock();
+                    const stampsToUpdate = db.collection('catalogo').where(
+                        firebase.firestore.FieldPath.documentId(),
+                        'in',
+                        context.listaCarrito.map((i) => i.id)
+                    );
+            
+                    const updateStock = async () => {
+                        const query = await stampsToUpdate.get();
+                        const batch = db.batch();
+                        query.docs.forEach((docSnapshot, idx) => {
+                        batch.update(docSnapshot.ref, {
+                            stock: docSnapshot.data().stock - context.listaCarrito[idx].cantidad,
+                        });
+                        });
+                        batch.commit();
+                    };
+            
+                    updateStock();
 
-                setSpinner(false)
+                    setSpinner(false)
 
-                
+                    
+                })
+            .catch((e)=> console.log("Ocurrió un error AÑADIENDO COMPRA ", e))
+            .finally(() => {
+                console.log("Proceso de compra FINALIZADO")
             })
-        .catch((e)=> console.log("Ocurrió un error AÑADIENDO COMPRA ", e))
-        .finally(() => {
-            console.log("Proceso de compra FINALIZADO")
-        })
+        }
 
     }
 
     const verificacionSubmit = () => {
-        let camposVacios = false;
+        let camposVacios = 0;
 
         for (let i = 0; i < 5; i++) {
-            if($(".un_input")[i].value === "" ){
-                camposVacios = true;
+            let campo = $(".un_input")[i].value
+            if(campo === "" || campo === " "){
+                camposVacios++;
             }
         }
 
-        if (camposVacios === true) {
+        console.log(camposVacios)
+
+        if (camposVacios > 0) {
             alert('Complete los campos requiridos!')
-            camposVacios = false;
+            return false;
+        }else{
+            if(formData.mail === formData.mail_verificacion){
+                return true;
+            }else{
+                alert("Los correos no coinciden")
+                return false
+            }
         }
     }
 
