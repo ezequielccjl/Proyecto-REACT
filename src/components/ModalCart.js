@@ -81,8 +81,6 @@ export const ModalCart = ({handlerModal}) => {
             }
         }
 
-        console.log(camposVacios)
-
         if (camposVacios > 0) {
             alert('Complete los campos requiridos!')
             return false;

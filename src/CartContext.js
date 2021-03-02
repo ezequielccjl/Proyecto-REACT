@@ -131,7 +131,7 @@ export const Context = ({children}) => {
         }else{
             listaCarrito.length > 0 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
         }
-        console.log(cantidadFinal)
+        //console.log(cantidadFinal)
         return cantidadFinal
     }
 
@@ -142,7 +142,7 @@ export const Context = ({children}) => {
     // Actualiza localStorage
     useEffect(() => {
         localStorage.setItem('carrito', JSON.stringify(listaCarrito));
-        console.log(listaCarrito)
+        //console.log(listaCarrito)
         setCantidad(calcularCantidad)
     }, [listaCarrito]);
 

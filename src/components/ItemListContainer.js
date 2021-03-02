@@ -24,7 +24,6 @@ export const ItemListContainer = ({greeting}) => {
 
     setListaMostrar(listaFiltrada)
 
-
     //En caso de que el categoryId no sea ninguna categoría quiero que me muestre todos los productos
     categoryId===undefined&&setListaMostrar(contexto.listaCatalogo)
   }, [categoryId, contexto.listaCatalogo])
