@@ -39,3 +39,15 @@
     height: auto;
     padding-top: 0;
 }
+
+@media (max-width: 1030px) {
+    .not_found{
+        height: 55vh !important;
+        padding-top: 2rem !important;
+    }
+
+    .cont-detail .not_found{
+        height: 62vh !important;
+        padding-top: 2rem !important;
+    }
+}

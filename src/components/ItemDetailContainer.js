@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
       {found ? <ItemDetail item={item} estado={estado} />
         :
         <div className="not_found">
-          <div>No se encontró item</div>
+          <div className="text-center">No se encontró item</div>
           <Link to="/">
             <button className="btn_not_found">Volver</button>
           </Link>  

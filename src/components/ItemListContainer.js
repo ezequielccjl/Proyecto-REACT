@@ -49,7 +49,7 @@ export const ItemListContainer = ({greeting}) => {
           foundCat ? <ItemList estado = {contexto.estado} listaItems = {listaItems} />
             :
             <div className="not_found">
-              <div>No se encontró la categoría</div>
+              <div className="text-center">No se encontró la categoría</div>
               <Link to="/">
                 <button className="btn_not_found">Volver</button>
               </Link>  
