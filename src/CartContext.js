@@ -13,11 +13,11 @@ export const Context = ({children}) => {
     const [total, setTotal] = useState(0)
 
     const [listaCatalogo, setCatalogo] = useState([])
-    //Defino estados seteables para confirmación del "Fetch"
+
     const [estado, setEstado] = useState('En proceso')
 
-//----------------------------------- OBTENIENDO CATALOGO --------------------------------------------
-
+    
+    //Obtener carrito de Firestore
     useEffect(()=>{
 
     let db = getFirestore();
@@ -38,30 +38,9 @@ export const Context = ({children}) => {
 
     }, [])
 
-//---------------------------------------------------------------------------------------------------
 
-    const calcularCantidad = () =>{
-        let cantidadFinal = 0
-        listaCarrito.forEach(prod => { 
-            cantidadFinal= cantidadFinal + prod.cantidad
-        });
-        
-        
-        if ($( window ).width() > 575){
-            cantidadFinal >= 2 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
-        }else{
-            cantidadFinal > 0 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
-        }
-
-        return cantidadFinal
-    }
-
-    useEffect(()=>{
-        setCantidad(calcularCantidad)
-    },[cantCarrito])
-
-//--------------------------------------------- AGREGAR PRODUCTO ------------------------------------------------------
     
+    //Agregar producto al carrito
     const agregarProd = (id, item, cantidad) =>{
         let listaFiltrada = listaCarrito.filter((itemSelec) => itemSelec.id===id)
         
@@ -87,8 +66,9 @@ export const Context = ({children}) => {
         }
     }
 
-//---------------------------------------------- ELIMINAR PRODUCTO (No funcional) -----------------------------------------------------
 
+    
+    //Eliminar producto de carrito
     function eliminarProd(item){
 
         let cantVolverStock = item.cantidad;
@@ -110,8 +90,9 @@ export const Context = ({children}) => {
         
     }
 
-//--------------------------------------------- CALCULAR TOTAL ------------------------------------------------------
 
+    
+    //Calcular total de UN item
     const calcularTotalItem = (id) => {
         let total = 0;
         listaCarrito.forEach(elem => {
@@ -123,8 +104,9 @@ export const Context = ({children}) => {
         return total;
     }
 
-//---------------------------------------------------------------------------------------------------
 
+    
+    //Calcular total a pagar en carrito
     const calcularTotalCarrito = () => {
         let total = 0;
         listaCarrito.forEach(elem => {
@@ -135,11 +117,47 @@ export const Context = ({children}) => {
         setTotal(total)
     }
 
+    
+    //Calcular cantidad de items en carrito
+    const calcularCantidad = () =>{
+        let cantidadFinal = 0
+        listaCarrito.forEach(prod => { 
+            cantidadFinal= cantidadFinal + prod.cantidad
+        });
+        
+        //Manejo de clases para responsive
+        if ($( window ).width() > 575){
+            cantidadFinal >= 2 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
+        }else{
+            cantidadFinal > 0 ? $(".section-cart").addClass("height_auto") : $(".section-cart").removeClass("height_auto")
+        }
+
+        return cantidadFinal
+    }
+
+    useEffect(()=>{
+        setCantidad(calcularCantidad)
+    },[cantCarrito])
+
 //---------------------------------------------------------------------------------------------------
 
     return(
-        <CartContext.Provider value={{listaCarrito, agregarProd, cantCarrito, setCantidad, calcularTotalItem, calcularTotalCarrito, eliminarProd, estado, listaCatalogo, total}}>
+        <CartContext.Provider 
+        value = {{
+            listaCarrito, 
+            agregarProd, 
+            cantCarrito, 
+            setCantidad, 
+            calcularTotalItem, 
+            calcularTotalCarrito, 
+            eliminarProd, 
+            estado, 
+            listaCatalogo, 
+            total
+        }}>
+
             {children}
+        
         </CartContext.Provider>
     )
 

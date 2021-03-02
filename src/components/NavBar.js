@@ -5,7 +5,6 @@ import {getFirestore} from '../firebase'
 
 import {CartWidget} from './CartWidget'
 import logo from '../imgs-icons/logo.png'
-import icon from '../imgs-icons/arrow-down.svg'
 import '../CSS/navbar.css'
 
 const NavBar = () => {

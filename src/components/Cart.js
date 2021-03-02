@@ -4,7 +4,6 @@ import '../CSS/cart.css'
 import {CartContext} from '../CartContext'
 import {SpinnerCart} from './SpinnerCart'
 
-
 import {ModalCart} from './ModalCart'
 
 export const Cart = () => {
