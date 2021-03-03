@@ -74,6 +74,10 @@ const NavBar = () => {
                     Todo
                 </Link>
 
+                <Link to={'/mis-compras'}>
+                    Mis Compras
+                </Link>
+
                 <CartWidget />
             </div>
 
@@ -88,7 +92,17 @@ const NavBar = () => {
                                 </Link>
                             )
                         })}
-                    
+                    <Link to={'/'}>
+                        <li className="li_menu-catalogo">
+                            Todo
+                        </li>
+                    </Link>
+
+                    <Link to={'/mis-compras'}>
+                        <li className="li_menu-catalogo">
+                            Mis Compras
+                        </li>
+                    </Link>
                 </ul>
             </div>
             

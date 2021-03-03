@@ -8,6 +8,8 @@ export const Context = ({children}) => {
 
     const [listaCarrito, setCarrito] = useState([])
 
+    const [listaCompras, setCompras] = useState([])
+
     const [cantCarrito, setCantidad] = useState(0)
 
     const [total, setTotal] = useState(0)
@@ -38,6 +40,7 @@ export const Context = ({children}) => {
 
     // Obtiene localStorage
     localStorage.carrito ? setCarrito(JSON.parse(localStorage.carrito)) : localStorage.setItem('carrito', [])
+    localStorage.compras ? setCompras(JSON.parse(localStorage.compras)) : localStorage.setItem('compras', [])
     
     }, [])
 
@@ -151,16 +154,18 @@ export const Context = ({children}) => {
     return(
         <CartContext.Provider 
         value = {{
-            listaCarrito, 
-            agregarProd, 
-            cantCarrito, 
-            setCantidad, 
+            listaCarrito,
+            listaCompras,
+            listaCatalogo, 
+            setCantidad,
+            setCompras,
             calcularTotalItem, 
             calcularTotalCarrito, 
             calcularCantidad,
+            agregarProd, 
             eliminarProd, 
+            cantCarrito, 
             estado, 
-            listaCatalogo, 
             total
         }}>
 

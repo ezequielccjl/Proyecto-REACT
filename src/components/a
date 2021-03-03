@@ -1,0 +1,17 @@
+
+        cliente: {
+            dni: '',
+            mail: '',
+            mail_verificacion: '',
+            nombre: '',
+            tel: ''
+        },
+        fecha: '',
+        item: [],
+        total: ''
+    
+useEffect(()=>{
+        console.log(compraInfo.cliente.nombre)
+    },[compraInfo])
+
+    subir_modal_id

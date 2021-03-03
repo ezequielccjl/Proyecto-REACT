@@ -78,7 +78,7 @@
 
 .cont_menu_catalogo{
     position: fixed;
-    top:-10rem;
+    top:-15rem;
     z-index: 5;
     margin-top: 3.4rem;
     background-color: rgb(41, 41, 41);

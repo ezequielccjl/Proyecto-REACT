@@ -59,6 +59,10 @@ export const ModalCart = ({handlerModal}) => {
             
                     updateStock();
 
+                    let listaEjemplo = context.listaCompras;
+                    listaEjemplo.push(id)
+                    localStorage.setItem('compras', JSON.stringify(listaEjemplo));
+
                     setSpinner(false)
 
                     
