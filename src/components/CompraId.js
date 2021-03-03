@@ -17,16 +17,17 @@ export const CompraId = () => {
             let compra = comprasDb.doc($("#id")[0].value)
             compra.get()
             .then((itemDb) =>{
-                if(!itemDb){
+                if(!itemDb || itemDb.data()===undefined){
                     alert("ID Inexistente")   
                 }else{
                     console.log(itemDb.data())
                     setCompraInfo(itemDb.data())
+                    handlerModalId()
                 }
                 
             })
 
-            handlerModalId()
+            
         }else{
             alert("Ingrese una ID")
         }
@@ -48,7 +49,7 @@ export const CompraId = () => {
 
             <div className="cont_landing_compras">
                 <label className="titulo_compras text-center" htmlFor="id">Ingresa el ID de tu compra:</label>
-                <input id="id" placeholder="ID de tu compra"></input>
+                <input id="id" placeholder="ID de tu compra" autoComplete="off"></input>
                 <button className="btn_modal" onClick={handlerBuscar}>Buscar</button>
                 <div className="idModalHandler" onClick={idModalHandler}>Ver compras realizadas en este dispositivo</div>
             </div>

@@ -129,6 +129,7 @@ export const ModalCart = ({handlerModal}) => {
                         type="text" 
                         placeholder="Ingrese su nombre" 
                         id="nombre" 
+                        autoComplete="off"
                         onChange={handleChange}>
                     </input>    
                 </div>
@@ -140,7 +141,8 @@ export const ModalCart = ({handlerModal}) => {
                             className="un_input" 
                             type="number" 
                             placeholder="Ingrese su teléfono" 
-                            id="tel" 
+                            id="tel"
+                            autoComplete="off"
                             onChange={handleChange}>
                         </input>    
                     </div>
@@ -151,6 +153,7 @@ export const ModalCart = ({handlerModal}) => {
                             type="number" 
                             placeholder="Ingrese su DNI" 
                             id="dni" 
+                            autoComplete="off"
                             onChange={handleChange}>
                         </input>
                             
@@ -164,6 +167,7 @@ export const ModalCart = ({handlerModal}) => {
                         type="text" 
                         placeholder="Ingrese su mail" 
                         id="mail" 
+                        autoComplete="off"
                         onChange={handleChange}>
                     </input>
 
@@ -176,6 +180,7 @@ export const ModalCart = ({handlerModal}) => {
                         type="text" 
                         placeholder="Ingrese su mail por segunda vez" 
                         id="mail_verificacion" 
+                        autoComplete="off"
                         onChange={handleChange}>
                     </input>
                 </div>
